@@ -63,7 +63,10 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => toggle(i)}
-                  className="w-full flex items-center justify-between gap-4 p-5 text-left transition-all"
+                  id={`faq-question-${i}`}
+                  aria-controls={`faq-answer-${i}`}
+                  aria-expanded={isOpen}
+                  className="w-full flex items-center justify-between gap-4 p-5 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 rounded-xl"
                   style={{
                     background: isOpen
                       ? "linear-gradient(90deg, #f5f3ff 0%, #ffffff 100%)"
@@ -71,7 +74,6 @@ export default function FaqSection() {
                     cursor: "pointer",
                     border: "none",
                   }}
-                  aria-expanded={isOpen}
                 >
                   <span
                     className="flex items-center gap-3 font-bold"
@@ -86,6 +88,7 @@ export default function FaqSection() {
                       size={20}
                       className="flex-shrink-0"
                       style={{ color: isOpen ? "#8b5cf6" : "#6b7280" }}
+                      aria-hidden="true"
                     />
                     {item.question}
                   </span>
@@ -102,12 +105,16 @@ export default function FaqSection() {
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                         color: isOpen ? "#5226b3" : "#6b7280",
                       }}
+                      aria-hidden="true"
                     />
                   </div>
                 </button>
 
                 {isOpen && (
                   <div
+                    id={`faq-answer-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${i}`}
                     className="px-5 pb-5 pt-2 text-sm leading-relaxed border-t"
                     style={{
                       borderColor: "#ede9fe",

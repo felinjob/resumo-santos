@@ -6,11 +6,12 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CheckoutSection from "@/components/sections/CheckoutSection";
 import FaqSection from "@/components/sections/FaqSection";
 import FooterSection from "@/components/sections/FooterSection";
+import StickyMobileCta from "@/components/StickyMobileCta";
 
 export default function Home() {
   return (
-    <main>
-      {/* 1. HeroSection */}
+    <main className="relative">
+      {/* 1. HeroSection (com faixa de métricas embutida) */}
       <HeroSection />
 
       {/* 2. BenefitsSection */}
@@ -33,6 +34,10 @@ export default function Home() {
 
       {/* 8. FooterSection */}
       <FooterSection />
+
+      {/* Sticky CTA Flutuante para Dispositivos Móveis */}
+      <StickyMobileCta />
     </main>
   );
 }
+

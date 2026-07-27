@@ -241,7 +241,8 @@ export default function ScheduleSection() {
                         href="/amostra-lc1196.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-outline-brand"
+                        className="btn-outline-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
+                        aria-label="Baixar Amostra Grátis em PDF da LC 1.196/2023"
                         style={{ gap: "6px" }}
                       >
                         <Download size={13} />

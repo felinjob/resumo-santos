@@ -81,7 +81,7 @@ export default function FooterSection() {
                 <li key={label}>
                   <a
                     href={href}
-                    className="text-sm transition-colors"
+                    className="text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-300 rounded"
                     style={{ color: "#a78bfa" }}
                     onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#ddd6fe")}
                     onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#a78bfa")}
@@ -108,11 +108,12 @@ export default function FooterSection() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm inline-flex items-center gap-1"
+                    className="text-sm inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-purple-300 rounded"
                     style={{ color: "#a78bfa" }}
+                    aria-label={`${label} (abre em nova aba)`}
                   >
                     {label}
-                    <ExternalLink size={11} />
+                    <ExternalLink size={11} aria-hidden="true" />
                   </a>
                 </li>
               ))}

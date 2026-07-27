@@ -102,10 +102,22 @@ export default function CheckoutSection() {
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 fontFamily: "var(--font-plus-jakarta)",
-                marginBottom: "6px",
+                marginBottom: "4px",
               }}
             >
               Oferta de Lançamento — Acesso Completo
+            </p>
+
+            {/* Ancoragem de Preço (De R$ 297 por...) */}
+            <p
+              style={{
+                fontSize: "0.85rem",
+                color: "#6b7280",
+                fontWeight: 600,
+                marginBottom: "4px",
+              }}
+            >
+              De <span className="line-through text-red-500 font-bold">R$ 297,00</span> por apenas
             </p>
 
             {/* Preço em destaque */}
@@ -184,7 +196,8 @@ export default function CheckoutSection() {
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-cta"
+              className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+              aria-label="Garantir meu acesso aos resumos agora — Abrir formulário de compra"
               style={{
                 fontSize: "1rem",
                 padding: "1.05rem 2.25rem",

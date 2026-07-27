@@ -40,39 +40,39 @@ export default function HeroSection() {
             href={EDITAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2.5"
+            className="flex items-center gap-2.5 min-w-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 rounded-lg"
             aria-label="Resumos Legislação Santos 2026 | IBAM — Ver Edital"
             style={{ textDecoration: "none" }}
           >
             <Image
               src="/logo.png"
-              alt="Resumos Legislação Santos 2026"
+              alt="Logo Resumos Legislação Santos 2026"
               width={40}
               height={48}
               priority
-              style={{ objectFit: "contain", height: "40px", width: "auto" }}
+              style={{ objectFit: "contain", height: "38px", width: "auto" }}
             />
             <span
               style={{
                 fontFamily: "var(--font-plus-jakarta)",
                 fontWeight: 700,
-                fontSize: "clamp(0.8rem, 1.5vw, 0.95rem)",
+                fontSize: "clamp(0.78rem, 2.5vw, 0.95rem)",
                 color: "#3d1a8f",
-                lineHeight: 1.25,
-                whiteSpace: "nowrap",
+                lineHeight: 1.2,
               }}
+              className="truncate"
             >
               Resumos Legislação Santos 2026
               <span style={{ color: "#8b5cf6", fontWeight: 800 }}> | IBAM</span>
             </span>
           </a>
 
-          {/* Badge do edital — lado direito */}
+          {/* Badge do edital — apenas em telas sm+ (eliminando sobreposição em celulares) */}
           <a
             href={EDITAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
             style={{
               color: "#3d1a8f",
               background: "#ede9fe",
@@ -81,6 +81,7 @@ export default function HeroSection() {
               letterSpacing: "0.01em",
               whiteSpace: "nowrap",
             }}
+            aria-label="Acessar o Edital nº 74/2026 oficial em nova aba"
           >
             Edital nº 74/2026 →
           </a>
@@ -167,7 +168,8 @@ export default function HeroSection() {
                   href={FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-cta"
+                  className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                  aria-label="Quero gabaritar a prova da prefeitura de Santos — Abrir formulário de compra"
                 >
                   QUERO GABARITAR A PROVA
                   <ArrowRight size={18} />
@@ -177,7 +179,8 @@ export default function HeroSection() {
                   href="/amostra-lc1196.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline-white"
+                  className="btn-outline-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300"
+                  aria-label="Baixar Amostra Grátis da Lei Complementar 1.196/23 em PDF"
                 >
                   <Download size={17} />
                   Amostra Grátis – LC 1.196/23
