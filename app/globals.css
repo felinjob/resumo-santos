@@ -1,26 +1,413 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =====================================================
+   DESIGN SYSTEM — RESUMOS LEGISLAÇÃO SANTOS 2026
+   v3 — Plus Jakarta Sans · Light Mode · Mobile First
+   WCAG AA/AAA contrast throughout
+   ===================================================== */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:         var(--font-inter);
+  --font-display:      var(--font-plus-jakarta);
+
+  /* Roxo/Púrpura — identidade */
+  --color-brand-950: #12063a;
+  --color-brand-900: #1e0a4a;
+  --color-brand-800: #2d1070;
+  --color-brand-700: #3d1a8f;
+  --color-brand-600: #5226b3;
+  --color-brand-500: #6d35cc;
+  --color-brand-400: #8b5cf6;
+  --color-brand-300: #a78bfa;
+  --color-brand-200: #c4b5fd;
+  --color-brand-100: #ddd6fe;
+  --color-brand-50:  #ede9fe;
+  --color-brand-25:  #f5f3ff;
+
+  /* Verde CTA */
+  --color-cta-800: #14532d;
+  --color-cta-700: #15803d;
+  --color-cta-600: #16a34a;
+  --color-cta-500: #22c55e;
+  --color-cta-400: #4ade80;
+  --color-cta-100: #dcfce7;
+  --color-cta-50:  #f0fdf4;
+
+  /* Cinzas */
+  --color-gray-50:  #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   GLOBAL RESETS & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.75;
+  overflow-x: hidden;
 }
+
+/* Tipografia de display — Plus Jakarta Sans em TODOS os headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+p { line-height: 1.75; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.container-site {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+@media (min-width: 640px)  { .container-site { padding: 0 1.75rem; } }
+@media (min-width: 1024px) { .container-site { padding: 0 2.5rem;  } }
+
+/* ============================================================
+   FUNDOS DE SEÇÃO
+   ============================================================ */
+
+/* Hero — roxo profundo com gradiente sutil */
+.bg-hero {
+  background-color: #2d1070;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(139,92,246,0.4) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 40% at 92% 85%, rgba(91,33,182,0.2) 0%, transparent 55%);
+}
+
+.bg-white-section   { background-color: #ffffff; }
+.bg-light           { background-color: #f5f3ff; }   /* lilás suave */
+.bg-gray-soft       { background-color: #f9fafb; }
+.bg-brand-solid     { background-color: #3d1a8f; }   /* roxo médio */
+.bg-brand-dark      { background-color: #1e0a4a; }   /* roxo escuro footer */
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+
+/* Card branco padrão */
+.card-white {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+.card-white:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+/* Card com borda brand */
+.card-brand {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #ede9fe;
+  box-shadow: 0 2px 12px rgba(109,53,204,0.06);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+.card-brand:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 6px 28px rgba(109,53,204,0.14);
+  transform: translateY(-2px);
+}
+
+/* Card glass (sobre fundo roxo) */
+.card-glass-on-brand {
+  background: rgba(255,255,255,0.11);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Card de PDF/resumo — usado no cronograma */
+.card-pdf {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+.card-pdf:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 6px 24px rgba(109,53,204,0.12);
+  transform: translateY(-2px);
+}
+.card-pdf.released {
+  border-color: #bbf7d0;
+}
+.card-pdf.released:hover {
+  border-color: #22c55e;
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+
+/* Verde primário */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 12px;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  background: #16a34a;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(22,163,74,0.38);
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 54px;
+  white-space: nowrap;
+}
+.btn-cta:hover  { background: #15803d; transform: translateY(-1px); box-shadow: 0 6px 22px rgba(22,163,74,0.45); }
+.btn-cta:active { transform: translateY(0); }
+
+/* Branco outline (sobre roxo) */
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 12px;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.55);
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 54px;
+  white-space: nowrap;
+  transition: background 0.18s ease, border-color 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.9); }
+
+/* Roxo outline (sobre branco) */
+.btn-outline-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #5226b3;
+  background: #f5f3ff;
+  border: 1.5px solid #c4b5fd;
+  cursor: pointer;
+  text-decoration: none;
+  min-height: 40px;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-outline-brand:hover { background: #ede9fe; border-color: #8b5cf6; color: #3d1a8f; }
+
+/* ============================================================
+   GRADIENTES DE TEXTO
+   ============================================================ */
+.text-gradient {
+  background: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* ATENÇÃO: em fundos claros não usar text-gradient roxo claro — usar cor sólida */
+
+/* ============================================================
+   ANIMAÇÕES REVEAL (Intersection Observer)
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.reveal-d1 { transition-delay: 60ms;  }
+.reveal-d2 { transition-delay: 120ms; }
+.reveal-d3 { transition-delay: 180ms; }
+.reveal-d4 { transition-delay: 240ms; }
+.reveal-d5 { transition-delay: 300ms; }
+.reveal-d6 { transition-delay: 360ms; }
+.reveal-d7 { transition-delay: 420ms; }
+.reveal-d8 { transition-delay: 480ms; }
+
+/* ============================================================
+   BADGES DE STATUS
+   ============================================================ */
+/* WCAG AA — verde #15803d sobre #dcfce7 → ratio ≥ 5.5:1 ✓ */
+.badge-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: #dcfce7;
+  color: #14532d;   /* verde muito escuro — alto contraste */
+  border: 1px solid #86efac;
+}
+
+/* WCAG AAA — texto âmbar escuro #78350f sobre fundo creme #fef3c7 → ratio ≥ 7:1 ✓ */
+.badge-yellow {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: #fef3c7;
+  color: #78350f;   /* âmbar escuro — alto contraste WCAG AAA */
+  border: 1px solid #fde047;
+}
+
+/* Dot pulsante */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1;   transform: scale(1);    }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+.dot-green  { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse-dot 1.8s ease infinite; flex-shrink: 0; }
+.dot-yellow { width: 7px; height: 7px; border-radius: 50%; background: #eab308; flex-shrink: 0; }
+.dot-purple { width: 7px; height: 7px; border-radius: 50%; background: #8b5cf6; flex-shrink: 0; }
+
+/* ============================================================
+   ELEMENTOS DECORATIVOS
+   ============================================================ */
+.divider-brand {
+  width: 48px; height: 4px; border-radius: 4px;
+  background: linear-gradient(90deg, #8b5cf6, #22c55e);
+  margin: 0 auto;
+}
+.divider-brand-left {
+  width: 48px; height: 4px; border-radius: 4px;
+  background: linear-gradient(90deg, #8b5cf6, #22c55e);
+}
+
+/* Eyebrow labels */
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3d1a8f;          /* roxo escuro → WCAG AA sobre #ede9fe */
+  background: #ede9fe;
+  border: 1px solid #c4b5fd;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.section-eyebrow-on-dark {
+  display: inline-block;
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;           /* branco → WCAG AAA sobre roxo escuro */
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.32);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+/* Thumbnail de capa de PDF */
+.pdf-thumbnail {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #3d1a8f 0%, #5226b3 50%, #6d35cc 100%);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.pdf-thumbnail::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.12) 0%, transparent 65%);
+}
+.pdf-thumbnail-sm {
+  width: 64px;
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(145deg, #3d1a8f 0%, #5226b3 55%, #6d35cc 100%);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.pdf-thumbnail-sm::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 65%);
+}
+
+/* ============================================================
+   SCROLLBAR E SELEÇÃO
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f3f4f6; }
+::-webkit-scrollbar-thumb { background: #8b5cf6; border-radius: 3px; }
+::selection { background: rgba(139,92,246,0.18); color: #111827; }
