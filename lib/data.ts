@@ -193,6 +193,8 @@ export interface FAQItem {
 export interface Testimonial {
   headline: string;
   image: string;
+  text?: string;
+  authorName?: string;
 }
 
 export const faqItems: FAQItem[] = [
@@ -234,6 +236,12 @@ export const faqItems: FAQItem[] = [
 ];
 
 export const testimonials: Testimonial[] = [
+  {
+    authorName: "Vanessa Rodrigues",
+    headline: "O curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na Prefeitura de Campinas!",
+    text: "Sou muito grata ao Valdinei e a Raquel pelo material completo que elaboraram para o concurso da Prefeitura de Campinas, que combinou vídeoaulas com exercícios no modelo da banca, preenchendo uma lacuna que havia em outros cursos para o concurso, a parte de legislação municipal! Com certeza o curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na prefeitura de Campinas.",
+    image: "/depoimentos/vanessa.jpeg",
+  },
   {
     headline: "O material de vocês foi fundamental pra eu conseguir a vaga!",
     image: "/depoimentos/depoimento-01.jpeg",

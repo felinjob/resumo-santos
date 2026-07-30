@@ -1,6 +1,8 @@
 import HeroSection from "@/components/sections/HeroSection";
-import WhyChooseSection from "@/components/sections/WhyChooseSection";
+import MetricsSection from "@/components/sections/MetricsSection";
+import BenefitsSection from "@/components/sections/BenefitsSection";
 import ScheduleSection from "@/components/sections/ScheduleSection";
+import WhyChooseSection from "@/components/sections/WhyChooseSection";
 import AuthorsSection from "@/components/sections/AuthorsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CheckoutSection from "@/components/sections/CheckoutSection";
@@ -11,28 +13,34 @@ import StickyMobileCta from "@/components/StickyMobileCta";
 export default function Home() {
   return (
     <main className="relative">
-      {/* 1. HeroSection (com faixa de métricas embutida) */}
+      {/* 1. HeroSection */}
       <HeroSection />
 
-      {/* 2. WhyChooseSection (Por que nossos resumos são a melhor escolha? + Prova Social Campinas) */}
-      <WhyChooseSection />
+      {/* 2. MetricsSection */}
+      <MetricsSection />
 
-      {/* 3. ScheduleSection */}
+      {/* 3. BenefitsSection ("Por que nossos resumos?") */}
+      <BenefitsSection />
+
+      {/* 4. ScheduleSection (Cronograma de liberação) */}
       <ScheduleSection />
 
-      {/* 4. AuthorsSection */}
+      {/* 5. WhyChooseSection (12 Classificados + Spotlight Thiago 5º Lugar) */}
+      <WhyChooseSection />
+
+      {/* 6. AuthorsSection (Quem serão seus professores) */}
       <AuthorsSection />
 
-      {/* 5. TestimonialsSection */}
+      {/* 7. TestimonialsSection (Prints de Depoimentos - iniciando por Vanessa) */}
       <TestimonialsSection />
 
-      {/* 6. CheckoutSection (Oferta principal) */}
+      {/* 8. CheckoutSection (Oferta Eduzz) */}
       <CheckoutSection />
 
-      {/* 7. FaqSection (Captura de indecisos / destruição de objeções) */}
+      {/* 9. FaqSection */}
       <FaqSection />
 
-      {/* 8. FooterSection */}
+      {/* 10. FooterSection */}
       <FooterSection />
 
       {/* Sticky CTA Flutuante para Dispositivos Móveis */}
