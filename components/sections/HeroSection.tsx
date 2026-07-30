@@ -119,7 +119,7 @@ export default function HeroSection() {
                     className="dot-green"
                     style={{ display: "inline-block", marginRight: 6, verticalAlign: "middle" }}
                   />
-                  Pós-Edital · Edital nº 74/2026 – SEPLA-RH · Banca IBAM
+                  Lançamento pós-edital
                 </span>
               </div>
 
@@ -136,8 +136,8 @@ export default function HeroSection() {
                   ...fadeStyle(80, 18),
                 }}
               >
-                Domine a Legislação de Santos{" "}
-                <span className="text-gradient">sem Perder Tempo</span>
+                Domine a legislação de Santos{" "}
+                <span className="text-gradient">sem perder tempo</span>
               </h1>
 
               {/* Subtítulo */}
@@ -146,15 +146,15 @@ export default function HeroSection() {
                   color: "#ddd6fe",
                   fontSize: "clamp(0.92rem, 2vw, 1.05rem)",
                   lineHeight: 1.72,
-                  maxWidth: "520px",
+                  maxWidth: "540px",
                   marginBottom: "1.75rem",
                   ...fadeStyle(150),
                 }}
               >
-                <strong style={{ color: "#ffffff", fontWeight: 700 }}>8 Resumos em PDF</strong>{" "}
-                esquematizados com tabelas comparativas, fluxogramas de licenciamento
-                e foco{" "}
-                <strong style={{ color: "#ffffff", fontWeight: 700 }}>100% no perfil IBAM</strong>.
+                <strong style={{ color: "#ffffff", fontWeight: 700 }}>Resumos em PDF + Vídeoaulas</strong>{" "}
+                com resolução de questões focadas na IBAM. Tabelas comparativas, fluxogramas de licenciamento
+                e{" "}
+                <strong style={{ color: "#ffffff", fontWeight: 700 }}>100% foco na banca IBAM</strong>.
                 Criado por quem já foi aprovado e atua no serviço público.
               </p>
 
@@ -169,9 +169,9 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
-                  aria-label="Quero gabaritar a prova da prefeitura de Santos — Abrir formulário de compra"
+                  aria-label="Quero ser aprovado — Abrir formulário de compra"
                 >
-                  QUERO GABARITAR A PROVA
+                  Quero ser aprovado!
                   <ArrowRight size={18} />
                 </a>
                 <a
@@ -180,10 +180,10 @@ export default function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300"
-                  aria-label="Baixar Amostra Grátis da Lei Complementar 1.196/23 em PDF"
+                  aria-label="Baixe sua amostra da Lei Complementar 1.196/23 em PDF"
                 >
                   <Download size={17} />
-                  Amostra Grátis – LC 1.196/23
+                  Baixe sua amostra
                 </a>
               </div>
 
@@ -197,7 +197,7 @@ export default function HeroSection() {
                   transition: "opacity 0.7s ease 320ms",
                 }}
               >
-                ✦ Elaborado por Servidores Públicos aprovados em concursos de Arquitetura
+                ✦ Elaborado por servidores públicos aprovados em concursos de Arquitetura
               </p>
 
             </div>
@@ -218,15 +218,15 @@ export default function HeroSection() {
                   /* Círculo de brilho atrás da logo */
                 }}
               >
-                {/* Halo de luz suave atrás */}
+                {/* Halo de luz suave atrás — mais sutil */}
                 <div
                   aria-hidden="true"
                   style={{
                     position: "absolute",
-                    inset: "-40px",
+                    inset: "-30px",
                     borderRadius: "50%",
-                    background: "radial-gradient(circle, rgba(139,92,246,0.35) 0%, transparent 70%)",
-                    filter: "blur(30px)",
+                    background: "radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%)",
+                    filter: "blur(25px)",
                     zIndex: 0,
                   }}
                 />
@@ -242,7 +242,7 @@ export default function HeroSection() {
                     height: "auto",
                     position: "relative",
                     zIndex: 1,
-                    filter: "drop-shadow(0 12px 40px rgba(139,92,246,0.5))",
+                    filter: "drop-shadow(0 8px 28px rgba(139,92,246,0.3))",
                   }}
                 />
               </div>
@@ -267,10 +267,10 @@ export default function HeroSection() {
               className="metrics-grid"
             >
               {[
-                { val: "8",        label: "Resumos em PDF"    },
-                { val: "100%",     label: "Foco Banca IBAM"   },
-                { val: "Visual",   label: "Tabelas & Esquemas" },
-                { val: "Imediato", label: "Acesso ao Material" },
+                { val: "8",        label: "Resumos em PDF"       },
+                { val: "100%",     label: "Foco banca IBAM"      },
+                { val: "Vídeo",    label: "Questões resolvidas"  },
+                { val: "PDF+",     label: "Vídeoaulas"           },
               ].map((m) => (
                 <div key={m.label} className="card-glass-on-brand text-center py-4 px-3">
                   <div

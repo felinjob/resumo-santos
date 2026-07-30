@@ -38,7 +38,7 @@ export default function BenefitsSection() {
             }}
           >
             Estude o que{" "}
-            <span style={{ color: "#6d35cc" }}>Realmente Cai</span>
+            <span style={{ color: "#6d35cc" }}>realmente cai</span>
           </h2>
           <p
             className="mx-auto"

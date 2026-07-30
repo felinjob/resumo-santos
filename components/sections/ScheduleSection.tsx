@@ -5,12 +5,14 @@ import {
   CheckCircle2,
   Clock,
   Download,
+  FileText,
+  Video,
   Leaf,          // 01 — Licenciamento Ambiental
-  Map,           // 02 — Uso e Ocupação (Continental)
+  Compass,       // 02 — Plano Diretor
   Landmark,      // 03 — Administração Pública
-  HardHat,       // 04 — Código de Edificações
+  Map,           // 04 — Uso e Ocupação (Continental)
   Users,         // 05 — Estatuto Funcionários Públicos
-  Compass,       // 06 — Plano Diretor
+  HardHat,       // 06 — Código de Edificações
   Scale,         // 07 — Lei Orgânica
   Waves,         // 08 — Uso e Ocupação (Insular)
 } from "lucide-react";
@@ -18,14 +20,14 @@ import { useReveal } from "@/lib/hooks";
 
 /* ─── Ícone semântico por ID de resumo ───────────────────── */
 const LAW_ICONS: Record<string, React.ReactNode> = {
-  "01": <Leaf   size={22} color="rgba(255,255,255,0.95)" />,
-  "02": <Map    size={22} color="rgba(255,255,255,0.95)" />,
+  "01": <Leaf     size={22} color="rgba(255,255,255,0.95)" />,
+  "02": <Compass  size={22} color="rgba(255,255,255,0.95)" />,
   "03": <Landmark size={22} color="rgba(255,255,255,0.95)" />,
-  "04": <HardHat size={22} color="rgba(255,255,255,0.95)" />,
-  "05": <Users  size={22} color="rgba(255,255,255,0.95)" />,
-  "06": <Compass size={22} color="rgba(255,255,255,0.95)" />,
-  "07": <Scale  size={22} color="rgba(255,255,255,0.95)" />,
-  "08": <Waves  size={22} color="rgba(255,255,255,0.95)" />,
+  "04": <Map      size={22} color="rgba(255,255,255,0.95)" />,
+  "05": <Users    size={22} color="rgba(255,255,255,0.95)" />,
+  "06": <HardHat  size={22} color="rgba(255,255,255,0.95)" />,
+  "07": <Scale    size={22} color="rgba(255,255,255,0.95)" />,
+  "08": <Waves    size={22} color="rgba(255,255,255,0.95)" />,
 };
 
 /* ─── Thumbnail visual com ícone semântico ───────────────── */
@@ -77,17 +79,35 @@ function PdfThumbnail({ id, released }: { id: string; released: boolean }) {
           letterSpacing: "0.04em",
         }}
       >
-        PDF {id}
+        {id}
       </span>
     </div>
   );
 }
 
+/* ─── Badge de status inline ───────────────────── */
+function StatusBadge({ status, date }: { status: "released" | "upcoming"; date: string }) {
+  if (status === "released") {
+    return (
+      <span className="badge-green">
+        <CheckCircle2 size={10} />
+        🟢 Disponível
+      </span>
+    );
+  }
+  return (
+    <span className="badge-yellow">
+      <Clock size={10} />
+      {date}
+    </span>
+  );
+}
+
 export default function ScheduleSection() {
   const { ref, visible } = useReveal(0.06);
-  const released = scheduleItems.filter((i) => i.status === "released").length;
-  const total    = scheduleItems.length;
-  const pct      = Math.round((released / total) * 100);
+  const releasedPdfs = scheduleItems.filter((i) => i.pdfStatus === "released").length;
+  const total = scheduleItems.length;
+  const pct = Math.round((releasedPdfs / total) * 100);
 
   return (
     <section
@@ -100,7 +120,7 @@ export default function ScheduleSection() {
 
         {/* ── Header ── */}
         <div className={`text-center mb-10 reveal ${visible ? "is-visible" : ""}`}>
-          <span className="section-eyebrow">Calendário de Entregas</span>
+          <span className="section-eyebrow">Cronograma de liberação das aulas e resumos</span>
           <h2
             style={{
               fontFamily: "var(--font-plus-jakarta)",
@@ -112,10 +132,10 @@ export default function ScheduleSection() {
             }}
           >
             Cronograma de{" "}
-            <span style={{ color: "#5226b3" }}>Liberação dos 8 PDFs</span>
+            <span style={{ color: "#5226b3" }}>liberação</span>
           </h2>
-          <p style={{ color: "#4b5563", fontSize: "0.95rem", maxWidth: "440px", margin: "0 auto" }}>
-            Acesse os resumos progressivamente na sua área de membros conforme o cronograma abaixo.
+          <p style={{ color: "#4b5563", fontSize: "0.95rem", maxWidth: "520px", margin: "0 auto" }}>
+            Acesse os resumos em PDF e as vídeoaulas de questões progressivamente na sua área de membros conforme o cronograma abaixo.
           </p>
           <div className="divider-brand mt-5" />
         </div>
@@ -138,7 +158,7 @@ export default function ScheduleSection() {
             </span>
             <span className="badge-green">
               <span className="dot-green" />
-              {released}/{total} liberado{released !== 1 ? "s" : ""}
+              {releasedPdfs}/{total} liberado{releasedPdfs !== 1 ? "s" : ""}
             </span>
           </div>
           <div style={{ height: "10px", borderRadius: "999px", background: "#e5e7eb", overflow: "hidden" }}>
@@ -154,6 +174,27 @@ export default function ScheduleSection() {
           </div>
         </div>
 
+        {/* ── Legenda de colunas ── */}
+        <div
+          className={`reveal reveal-d2 ${visible ? "is-visible" : ""}`}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "1.5rem",
+            marginBottom: "1.25rem",
+            flexWrap: "wrap",
+          }}
+        >
+          <div className="flex items-center gap-2" style={{ fontSize: "0.78rem", color: "#5226b3", fontWeight: 700 }}>
+            <FileText size={14} />
+            <span>Resumo em PDF</span>
+          </div>
+          <div className="flex items-center gap-2" style={{ fontSize: "0.78rem", color: "#5226b3", fontWeight: 700 }}>
+            <Video size={14} />
+            <span>Vídeoaula / Questões</span>
+          </div>
+        </div>
+
         {/* ══════════════════════════════════════════
             GRID 2 col desktop / 1 col mobile
             ══════════════════════════════════════════ */}
@@ -165,44 +206,21 @@ export default function ScheduleSection() {
           }}
         >
           {scheduleItems.map((item, i) => {
-            const isReleased = item.status === "released";
+            const isPdfReleased = item.pdfStatus === "released";
 
             return (
               <div
                 key={item.id}
-                className={`card-pdf${isReleased ? " released" : ""} reveal reveal-d${Math.min(i + 1, 8)} ${visible ? "is-visible" : ""}`}
+                className={`card-pdf${isPdfReleased ? " released" : ""} reveal reveal-d${Math.min(i + 1, 8)} ${visible ? "is-visible" : ""}`}
                 style={{ padding: "1.1rem 1.2rem" }}
               >
                 <div className="flex items-start gap-4">
 
                   {/* Thumbnail com ícone semântico */}
-                  <PdfThumbnail id={item.id} released={isReleased} />
+                  <PdfThumbnail id={item.id} released={isPdfReleased} />
 
                   {/* Conteúdo */}
                   <div style={{ flex: 1, minWidth: 0 }}>
-
-                    {/* Badge + data */}
-                    <div
-                      className="flex items-center justify-between flex-wrap gap-2"
-                      style={{ marginBottom: "6px" }}
-                    >
-                      {isReleased ? (
-                        <span className="badge-green">
-                          <CheckCircle2 size={10} />
-                          🟢 LIBERADO
-                        </span>
-                      ) : (
-                        <span className="badge-yellow">
-                          <Clock size={10} />
-                          🟡 EM BREVE · {item.date}
-                        </span>
-                      )}
-                      {isReleased && (
-                        <span style={{ fontSize: "0.7rem", color: "#6b7280", fontWeight: 600 }}>
-                          Disponível desde {item.date}
-                        </span>
-                      )}
-                    </div>
 
                     {/* Título */}
                     <h3
@@ -219,34 +237,37 @@ export default function ScheduleSection() {
                     </h3>
 
                     {/* Lei */}
-                    <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#5226b3", marginBottom: "4px" }}>
+                    <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#5226b3", marginBottom: "8px" }}>
                       {item.law}
                     </p>
 
-                    {/* Ementa */}
-                    <p
-                      style={{
-                        fontSize: "0.78rem",
-                        color: "#6b7280",
-                        lineHeight: 1.55,
-                        marginBottom: isReleased ? "10px" : 0,
-                      }}
+                    {/* Status badges — PDF e Vídeo lado a lado */}
+                    <div
+                      className="flex items-center flex-wrap gap-2"
+                      style={{ marginBottom: isPdfReleased ? "10px" : "0" }}
                     >
-                      {item.description}
-                    </p>
+                      <div className="flex items-center gap-1.5">
+                        <FileText size={12} style={{ color: "#5226b3" }} />
+                        <StatusBadge status={item.pdfStatus} date={item.pdfDate} />
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <Video size={12} style={{ color: "#5226b3" }} />
+                        <StatusBadge status={item.videoStatus} date={item.videoDate} />
+                      </div>
+                    </div>
 
-                    {/* Botão amostra — apenas para LC 1.196/2023 */}
-                    {isReleased && (
+                    {/* Botão amostra — apenas para o item 01 já liberado */}
+                    {isPdfReleased && (
                       <a
                         href="/amostra-lc1196.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-outline-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
-                        aria-label="Baixar Amostra Grátis em PDF da LC 1.196/2023"
+                        aria-label="Baixe sua amostra em PDF da Lei Complementar 1.196/2023"
                         style={{ gap: "6px" }}
                       >
                         <Download size={13} />
-                        Baixar Amostra Grátis
+                        Baixe sua amostra
                       </a>
                     )}
                   </div>
@@ -260,7 +281,7 @@ export default function ScheduleSection() {
           className={`text-center mt-7 reveal ${visible ? "is-visible" : ""}`}
           style={{ fontSize: "0.75rem", color: "#9ca3af" }}
         >
-          * Datas de previsão sujeitas a alterações. Materiais liberados conforme produção.
+          * Datas de previsão sujeitas a alterações. As vídeoaulas de questões são liberadas no ciclo posterior à entrega dos PDFs.
         </p>
       </div>
     </section>

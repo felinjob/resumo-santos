@@ -88,14 +88,14 @@ export default function StickyMobileCta() {
           target="_blank"
           rel="noopener noreferrer"
           className="btn-cta text-xs py-2 px-3.5 font-extrabold rounded-xl flex items-center gap-1.5 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 flex-shrink-0"
-          aria-label="Garantir meu acesso aos resumos agora"
+          aria-label="Quero ser aprovado"
           style={{
             minHeight: "38px",
             fontSize: "0.78rem",
             background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)",
           }}
         >
-          GARANTIR ACESSO
+          Quero ser aprovado!
           <ArrowRight size={13} />
         </a>
       </div>

@@ -1,14 +1,8 @@
 "use client";
 
-import { guarantees, FORM_URL } from "@/lib/data";
-import { ArrowRight, ShieldCheck, CreditCard, Download } from "lucide-react";
+import { FORM_URL } from "@/lib/data";
+import { ArrowRight, ShieldCheck, CreditCard, CheckCircle2, Star } from "lucide-react";
 import { useReveal } from "@/lib/hooks";
-
-const guaranteeIcons = [
-  <CreditCard key="c" size={20} style={{ color: "#5226b3" }} />,
-  <Download   key="d" size={20} style={{ color: "#5226b3" }} />,
-  <ShieldCheck key="s" size={20} style={{ color: "#5226b3" }} />,
-];
 
 export default function CheckoutSection() {
   const { ref, visible } = useReveal(0.15);
@@ -21,35 +15,25 @@ export default function CheckoutSection() {
       style={{ padding: "4.5rem 0" }}
     >
       <div className="container-site">
-        <div
-          className={`card-brand mx-auto reveal ${visible ? "is-visible" : ""}`}
-          style={{
-            maxWidth: "600px",
-            padding: "clamp(1.75rem, 5vw, 2.75rem)",
-          }}
-        >
-          {/* Eyebrow */}
-          <div className="text-center" style={{ marginBottom: "1.25rem" }}>
-            <span
-              style={{
-                display: "inline-block",
-                background: "#dcfce7",
-                color: "#14532d",     /* verde escuro — WCAG AAA */
-                border: "1px solid #86efac",
-                padding: "5px 16px",
-                borderRadius: "999px",
-                fontSize: "0.72rem",
-                fontWeight: 800,
-                fontFamily: "var(--font-plus-jakarta)",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-              }}
-            >
-              ✦ Condição especial · pré-venda pós-edital
-            </span>
-          </div>
+        {/* ── Header da seção ── */}
+        <div className={`text-center mb-8 reveal ${visible ? "is-visible" : ""}`}>
+          <span
+            style={{
+              display: "inline-block",
+              background: "#dcfce7",
+              color: "#14532d",
+              border: "1px solid #86efac",
+              padding: "5px 16px",
+              borderRadius: "999px",
+              fontSize: "0.72rem",
+              fontWeight: 800,
+              fontFamily: "var(--font-plus-jakarta)",
+              letterSpacing: "0.1em",
+            }}
+          >
+            ✦ Lançamento pós-edital
+          </span>
 
-          {/* Título */}
           <h2
             className="text-center"
             style={{
@@ -58,221 +42,276 @@ export default function CheckoutSection() {
               fontWeight: 800,
               color: "#111827",
               lineHeight: 1.18,
+              marginTop: "1rem",
               marginBottom: "0.75rem",
               letterSpacing: "-0.01em",
             }}
           >
-            Sua Aprovação em Santos{" "}
-            <span style={{ color: "#5226b3" }}>Começa Aqui.</span>
+            Sua aprovação em Santos{" "}
+            <span style={{ color: "#5226b3" }}>começa aqui.</span>
           </h2>
 
-          {/* Subtítulo */}
           <p
-            className="text-center"
+            className="text-center mx-auto"
             style={{
               color: "#4b5563",
               fontSize: "0.93rem",
-              maxWidth: "420px",
-              margin: "0 auto 1.75rem",
-              lineHeight: 1.65,
+              maxWidth: "480px",
+              lineHeight: 1.7,
+              textAlign: "justify",
             }}
           >
-            Não deixe a Legislação Específica ser o seu ponto fraco. Garanta acesso a
-            todos os <strong style={{ color: "#111827" }}>8 PDFs</strong> pelo valor
-            promocional de lançamento.
+            Garanta acesso à toda legislação municipal pelo valor promocional de lançamento.
           </p>
+        </div>
 
-          {/* ── ÂNCORA DE PREÇO / CONDIÇÃO ─────────────────── */}
+        {/* ══════════════════════════════════════════
+            CARDS DE PLANOS — 2 opções
+            ══════════════════════════════════════════ */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto"
+          style={{ marginBottom: "2rem" }}
+        >
+          {/* ── OPÇÃO 1: Curso Avulso ── */}
           <div
-            style={{
-              background: "#f5f3ff",
-              border: "2px solid #c4b5fd",
-              borderRadius: "14px",
-              padding: "1.25rem 1.4rem",
-              marginBottom: "1.5rem",
-              textAlign: "center",
-            }}
+            className={`card-brand reveal reveal-d1 ${visible ? "is-visible" : ""}`}
+            style={{ padding: "clamp(1.5rem, 4vw, 2rem)", position: "relative" }}
           >
-            {/* Rótulo */}
-            <p
+            <h3
               style={{
-                fontSize: "0.72rem",
-                fontWeight: 800,
-                color: "#5226b3",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
                 fontFamily: "var(--font-plus-jakarta)",
-                marginBottom: "4px",
+                fontSize: "1.05rem",
+                fontWeight: 800,
+                color: "#111827",
+                marginBottom: "0.75rem",
+                lineHeight: 1.3,
               }}
             >
-              Oferta de Lançamento — Acesso Completo
-            </p>
+              Curso de Legislação Avulso
+            </h3>
 
-            {/* Ancoragem de Preço (De R$ 297 por...) */}
-            <p
-              style={{
-                fontSize: "0.85rem",
-                color: "#6b7280",
-                fontWeight: 600,
-                marginBottom: "4px",
-              }}
-            >
-              De <span className="line-through text-red-500 font-bold">R$ 297,00</span> por apenas
-            </p>
+            <ul style={{ marginBottom: "1.25rem" }} className="space-y-2">
+              {[
+                "8 Resumos em PDF esquematizados",
+                "Vídeoaulas com resolução de questões IBAM",
+                "Acesso à área de membros",
+                "Atualizações conforme retificações do edital",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#22c55e" }} />
+                  <span style={{ fontSize: "0.82rem", color: "#4b5563", lineHeight: 1.5 }}>{item}</span>
+                </li>
+              ))}
+            </ul>
 
-            {/* Preço em destaque */}
-            <div
-              className="flex items-baseline justify-center gap-1.5 flex-wrap"
-              style={{ marginBottom: "6px" }}
-            >
-              <span
-                style={{
-                  fontSize: "1.1rem",
-                  fontWeight: 700,
-                  color: "#3d1a8f",
-                  fontFamily: "var(--font-plus-jakarta)",
-                }}
-              >
-                12x de
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-plus-jakarta)",
-                  fontSize: "clamp(2.4rem, 6vw, 3.2rem)",
-                  fontWeight: 800,
-                  color: "#3d1a8f",   /* roxo muito escuro — WCAG AAA sobre #f5f3ff */
-                  lineHeight: 1,
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                R$ 19,90
-              </span>
+            {/* Preço */}
+            <div style={{ marginBottom: "1rem" }}>
+              <p style={{ fontSize: "0.8rem", color: "#6b7280", fontWeight: 600, marginBottom: "2px" }}>
+                De <span className="line-through text-red-500 font-bold">R$ 237,00</span> por
+              </p>
+              <div className="flex items-baseline gap-1.5 flex-wrap">
+                <span
+                  style={{
+                    fontFamily: "var(--font-plus-jakarta)",
+                    fontSize: "clamp(2rem, 5vw, 2.6rem)",
+                    fontWeight: 800,
+                    color: "#3d1a8f",
+                    lineHeight: 1,
+                    letterSpacing: "-0.03em",
+                  }}
+                >
+                  R$ 197,00
+                </span>
+                <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
+              </div>
+              <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "4px" }}>
+                ou parcelado no cartão
+              </p>
             </div>
 
-            {/* Valor à vista */}
-            <p
-              style={{
-                fontSize: "0.95rem",
-                color: "#1e0a4a",
-                fontWeight: 700,
-                fontFamily: "var(--font-plus-jakarta)",
-                marginBottom: "6px",
-              }}
-            >
-              ou R$ 197,00 à vista no PIX
-            </p>
-
-            {/* Detalhe de pagamento */}
-            <p
-              style={{
-                fontSize: "0.82rem",
-                color: "#5226b3",
-                fontWeight: 600,
-              }}
-            >
-              💳 PIX (Acesso Imediato) · Cartão em até 12x
-            </p>
-
-            {/* Urgência discreta */}
-            <p
-              style={{
-                marginTop: "8px",
-                fontSize: "0.72rem",
-                color: "#6b7280",
-                fontStyle: "italic",
-              }}
-            >
-              Condição válida para o período de pré-venda pós-edital
-            </p>
-          </div>
-
-          {/* CTA principal */}
-          <div
-            className="flex justify-center"
-            style={{ marginBottom: "0.75rem" }}
-          >
             <a
-              id="cta-checkout-primary"
+              id="cta-checkout-avulso"
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
-              aria-label="Garantir meu acesso aos resumos agora — Abrir formulário de compra"
-              style={{
-                fontSize: "1rem",
-                padding: "1.05rem 2.25rem",
-                width: "100%",
-                maxWidth: "360px",
-              }}
+              className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 w-full"
+              aria-label="Quero ser aprovado — Curso avulso"
+              style={{ fontSize: "0.95rem", padding: "0.9rem 1.5rem" }}
             >
-              GARANTIR MEU ACESSO AGORA
+              Quero ser aprovado!
               <ArrowRight size={18} />
             </a>
           </div>
 
-          <p
-            className="text-center"
+          {/* ── OPÇÃO 2: Combo ── */}
+          <div
+            className={`card-brand reveal reveal-d2 ${visible ? "is-visible" : ""}`}
             style={{
-              fontSize: "0.73rem",
-              color: "#6b7280",
-              marginBottom: "1.75rem",
+              padding: "clamp(1.5rem, 4vw, 2rem)",
+              position: "relative",
+              border: "2px solid #8b5cf6",
             }}
           >
-            Clique para acessar o formulário seguro de compra
-          </p>
+            {/* Badge destaque */}
+            <div
+              style={{
+                position: "absolute",
+                top: "-12px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                background: "linear-gradient(135deg,#8b5cf6,#6d35cc)",
+                color: "#ffffff",
+                padding: "4px 16px",
+                borderRadius: "999px",
+                fontSize: "0.7rem",
+                fontWeight: 800,
+                fontFamily: "var(--font-plus-jakarta)",
+                letterSpacing: "0.08em",
+                whiteSpace: "nowrap",
+              }}
+            >
+              <Star size={10} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} />
+              Mais completo
+            </div>
 
-          {/* Divider */}
-          <div
-            style={{
-              height: "1px",
-              background: "#e5e7eb",
-              marginBottom: "1.4rem",
-            }}
-          />
+            <h3
+              style={{
+                fontFamily: "var(--font-plus-jakarta)",
+                fontSize: "1.05rem",
+                fontWeight: 800,
+                color: "#111827",
+                marginBottom: "0.75rem",
+                lineHeight: 1.3,
+                marginTop: "0.5rem",
+              }}
+            >
+              Combo Legislação + Plano de Estudos Arquiteto Concurso
+            </h3>
 
-          {/* ── Selos de garantia ── */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-              gap: "0.75rem",
-            }}
-          >
-            {guarantees.map((g, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2.5 rounded-xl"
+            <ul style={{ marginBottom: "1.25rem" }} className="space-y-2">
+              {[
+                "Tudo do Curso Avulso incluído",
+                "Plano de Estudos personalizado Arquiteto Concurso",
+                "Cronograma estratégico para a prova",
+                "Material complementar exclusivo",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#22c55e" }} />
+                  <span style={{ fontSize: "0.82rem", color: "#4b5563", lineHeight: 1.5 }}>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Preço — placeholder */}
+            <div style={{ marginBottom: "1rem" }}>
+              <p
                 style={{
-                  background: "#f9fafb",
-                  border: "1px solid #e5e7eb",
-                  padding: "0.75rem",
+                  fontSize: "0.85rem",
+                  color: "#5226b3",
+                  fontWeight: 700,
+                  fontFamily: "var(--font-plus-jakarta)",
                 }}
               >
-                <div
-                  className="flex-shrink-0 flex items-center justify-center rounded-xl"
-                  style={{ width: "36px", height: "36px", background: "#ede9fe" }}
-                >
-                  {guaranteeIcons[i]}
-                </div>
-                <div>
-                  <p
-                    style={{
-                      fontSize: "0.78rem",
-                      fontWeight: 700,
-                      color: "#111827",
-                      fontFamily: "var(--font-plus-jakarta)",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {g.title}
-                  </p>
-                  <p style={{ fontSize: "0.7rem", color: "#6b7280", marginTop: "2px" }}>
-                    {g.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+                Consulte condições especiais
+              </p>
+              <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "4px" }}>
+                Parcelamento disponível no cartão
+              </p>
+            </div>
+
+            <a
+              id="cta-checkout-combo"
+              href={FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 w-full"
+              aria-label="Quero ser aprovado — Combo completo"
+              style={{ fontSize: "0.95rem", padding: "0.9rem 1.5rem" }}
+            >
+              Quero ser aprovado!
+              <ArrowRight size={18} />
+            </a>
           </div>
+        </div>
+
+        {/* ── Urgência discreta ── */}
+        <p
+          className={`text-center reveal ${visible ? "is-visible" : ""}`}
+          style={{
+            fontSize: "0.78rem",
+            color: "#6b7280",
+            fontStyle: "italic",
+            marginBottom: "2rem",
+          }}
+        >
+          Condição válida para o período de lançamento
+        </p>
+
+        {/* ══════════════════════════════════════════
+            GARANTIA DE REEMBOLSO — destaque visual
+            ══════════════════════════════════════════ */}
+        <div
+          className={`card-brand reveal reveal-d3 ${visible ? "is-visible" : ""}`}
+          style={{
+            maxWidth: "560px",
+            margin: "0 auto 2rem",
+            padding: "1.5rem",
+            textAlign: "center",
+            border: "2px solid #22c55e",
+            background: "#f0fdf4",
+          }}
+        >
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <ShieldCheck size={28} style={{ color: "#16a34a" }} />
+          </div>
+          <h3
+            style={{
+              fontFamily: "var(--font-plus-jakarta)",
+              fontSize: "1.15rem",
+              fontWeight: 800,
+              color: "#14532d",
+              marginBottom: "0.5rem",
+            }}
+          >
+            Garantia de reembolso incondicional em até 7 dias
+          </h3>
+          <p style={{ fontSize: "0.88rem", color: "#4b5563", lineHeight: 1.65 }}>
+            Se por qualquer motivo você não ficar satisfeito, pode solicitar o reembolso total
+            dentro da plataforma Eduzz em até 7 dias. Sem burocracia.
+          </p>
+        </div>
+
+        {/* ── Selos de confiança ── */}
+        <div
+          className={`reveal reveal-d4 ${visible ? "is-visible" : ""}`}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "1.25rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {[
+            { icon: <CreditCard size={18} style={{ color: "#5226b3" }} />, label: "Compra segura via Eduzz" },
+            { icon: <ShieldCheck size={18} style={{ color: "#5226b3" }} />, label: "7 dias de garantia" },
+          ].map((seal) => (
+            <div
+              key={seal.label}
+              className="flex items-center gap-2 rounded-full"
+              style={{
+                background: "#f5f3ff",
+                border: "1px solid #c4b5fd",
+                padding: "0.5rem 1rem",
+                fontSize: "0.78rem",
+                fontWeight: 700,
+                color: "#3d1a8f",
+                fontFamily: "var(--font-plus-jakarta)",
+              }}
+            >
+              {seal.icon}
+              {seal.label}
+            </div>
+          ))}
         </div>
       </div>
     </section>

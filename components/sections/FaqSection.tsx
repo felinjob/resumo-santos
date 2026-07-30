@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { faqItems } from "@/lib/data";
+import { faqItems, SUPPORT_EMAIL } from "@/lib/data";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { useReveal } from "@/lib/hooks";
 
@@ -23,7 +23,7 @@ export default function FaqSection() {
       <div className="container-site">
         {/* Header */}
         <div className={`text-center mb-10 reveal ${visible ? "is-visible" : ""}`}>
-          <span className="section-eyebrow">Tire Suas Dúvidas</span>
+          <span className="section-eyebrow">Tire suas dúvidas</span>
           <h2
             style={{
               fontFamily: "var(--font-plus-jakarta)",
@@ -34,10 +34,10 @@ export default function FaqSection() {
               fontWeight: 800,
             }}
           >
-            Perguntas <span style={{ color: "#5226b3" }}>Frequentes</span>
+            Perguntas <span style={{ color: "#5226b3" }}>frequentes</span>
           </h2>
           <p style={{ color: "#4b5563", fontSize: "0.95rem", maxWidth: "460px", margin: "0 auto" }}>
-            Respostas claras para as principais dúvidas sobre os resumos e o acesso ao material.
+            Respostas claras para as principais dúvidas sobre as aulas, resumos e o acesso ao material.
           </p>
           <div className="divider-brand mt-5" />
         </div>
@@ -121,6 +121,8 @@ export default function FaqSection() {
                       color: "#374151",
                       backgroundColor: "#ffffff",
                       fontSize: "0.92rem",
+                      lineHeight: 1.7,
+                      textAlign: "justify",
                     }}
                   >
                     {item.answer}
@@ -129,6 +131,21 @@ export default function FaqSection() {
               </div>
             );
           })}
+        </div>
+
+        {/* Suporte — e-mail de dúvidas */}
+        <div
+          className={`text-center mt-8 reveal ${visible ? "is-visible" : ""}`}
+        >
+          <p style={{ fontSize: "0.85rem", color: "#4b5563" }}>
+            Ainda tem dúvidas? Entre em contato:{" "}
+            <a
+              href={`mailto:${SUPPORT_EMAIL}`}
+              style={{ color: "#5226b3", fontWeight: 700, textDecoration: "underline" }}
+            >
+              {SUPPORT_EMAIL}
+            </a>
+          </p>
         </div>
       </div>
     </section>

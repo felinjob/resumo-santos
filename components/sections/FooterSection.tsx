@@ -1,6 +1,6 @@
 "use client";
 
-import { FORM_URL, EDITAL_URL } from "@/lib/data";
+import { FORM_URL, EDITAL_URL, SUPPORT_EMAIL } from "@/lib/data";
 import { ExternalLink, Mail } from "lucide-react";
 
 export default function FooterSection() {
@@ -53,11 +53,11 @@ export default function FooterSection() {
                   Dúvidas sobre sua compra ou acesso? Entre em contato pelo e-mail:
                 </p>
                 <a
-                  href="mailto:suporte@resumossantos.com.br"
-                  className="font-semibold text-white underline hover:text-purple-200 transition-colors"
-                  style={{ fontSize: "0.75rem" }}
+                  href={`mailto:${SUPPORT_EMAIL}`}
+                  className="font-semibold underline hover:text-purple-200 transition-colors"
+                  style={{ fontSize: "0.75rem", color: "#ffffff" }}
                 >
-                  suporte@resumossantos.com.br
+                  {SUPPORT_EMAIL}
                 </a>
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function FooterSection() {
                 ["#hero", "Início"],
                 ["#diferenciais", "Diferenciais"],
                 ["#cronograma", "Cronograma"],
-                ["#autores", "Autores"],
+                ["#autores", "Professores"],
                 ["#depoimentos", "Depoimentos"],
                 ["#garantia", "Comprar"],
                 ["#faq", "Dúvidas (FAQ)"],
