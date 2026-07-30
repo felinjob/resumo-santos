@@ -38,19 +38,19 @@ export default function AuthorsSection() {
         </div>
 
         {/* Cards de professores */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {authors.map((a, i) => (
             <div
               key={a.name}
               className={`card-white p-7 reveal reveal-d${i + 2} ${visible ? "is-visible" : ""}`}
             >
-              {/* Foto real + nome */}
-              <div className="flex items-center gap-4 mb-5">
+              {/* Foto real destacada (maior) + nome */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 mb-5">
                 <div
-                  className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden flex-shrink-0"
+                  className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden flex-shrink-0"
                   style={{
-                    border: "3px solid #8b5cf6",
-                    boxShadow: "0 8px 24px rgba(139, 92, 246, 0.35)",
+                    border: "4px solid #8b5cf6",
+                    boxShadow: "0 10px 28px rgba(139, 92, 246, 0.4)",
                     background: "linear-gradient(135deg, #5226b3, #3d1a8f)",
                   }}
                 >
@@ -58,19 +58,28 @@ export default function AuthorsSection() {
                     src={a.image}
                     alt={`Foto de ${a.name}`}
                     fill
-                    sizes="96px"
+                    sizes="128px"
                     style={{ objectFit: "cover", objectPosition: "center top" }}
                   />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3
-                    className="mb-0.5"
-                    style={{ fontFamily: "var(--font-plus-jakarta)", fontSize: "1.1rem", color: "#111827" }}
+                    className="mb-1"
+                    style={{
+                      fontFamily: "var(--font-plus-jakarta)",
+                      fontSize: "1.2rem",
+                      fontWeight: 800,
+                      color: "#111827",
+                    }}
                   >
                     {a.name}
                   </h3>
-                  <p style={{ fontSize: "0.78rem", color: "#6d35cc", fontWeight: 600 }}>{a.role}</p>
-                  <p style={{ fontSize: "0.75rem", color: "#9ca3af", marginTop: "2px" }}>{a.organization}</p>
+                  <p style={{ fontSize: "0.82rem", color: "#6d35cc", fontWeight: 700, lineHeight: 1.35 }}>
+                    {a.role}
+                  </p>
+                  <p style={{ fontSize: "0.78rem", color: "#9ca3af", marginTop: "4px" }}>
+                    {a.organization}
+                  </p>
                 </div>
               </div>
 
@@ -80,7 +89,7 @@ export default function AuthorsSection() {
               {/* Biografia completa */}
               <p
                 style={{
-                  fontSize: "0.85rem",
+                  fontSize: "0.86rem",
                   color: "#4b5563",
                   lineHeight: 1.65,
                   textAlign: "justify",
