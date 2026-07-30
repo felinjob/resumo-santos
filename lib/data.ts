@@ -46,7 +46,7 @@ export const scheduleItems: ScheduleItem[] = [
     law: "Lei Complementar nº 1.196/2023 + Decreto 10.070/2023",
     title: "Licenciamento Ambiental Municipal",
     description: "Licenciamento Ambiental Municipal",
-    pdfDate: "Disponível",
+    pdfDate: "01/08",
     videoDate: "25/09",
     pdfStatus: "released",
     videoStatus: "upcoming",
