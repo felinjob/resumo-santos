@@ -176,11 +176,11 @@ export default function HeroSection() {
                 </a>
                 <a
                   id="cta-hero-sample"
-                  href="/amostra-lc1196.pdf"
+                  href="/Amostra-Resumo-Santos.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300"
-                  aria-label="Baixe sua amostra da Lei Complementar 1.196/23 em PDF"
+                  aria-label="Baixe sua amostra do resumo em PDF"
                 >
                   <Download size={17} />
                   Baixe sua amostra

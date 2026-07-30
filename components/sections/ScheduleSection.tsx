@@ -259,7 +259,7 @@ export default function ScheduleSection() {
                     {/* Botão amostra — apenas para o item 01 já liberado */}
                     {isPdfReleased && (
                       <a
-                        href="/amostra-lc1196.pdf"
+                        href="/Amostra-Resumo-Santos.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-outline-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
