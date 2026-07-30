@@ -59,7 +59,7 @@ export default function CampinasResultsSection() {
               className="mx-auto"
               style={{ color: "#4b5563", maxWidth: "600px", fontSize: "1rem", lineHeight: 1.6 }}
             >
-              Resultados reais conquistados por nossos alunos no último concurso de Arquiteto da Prefeitura de Campinas — incluindo <strong style={{ color: "#3d1a8f" }}>2 alunos entre os 10 primeiros lugares</strong>.
+              Resultados reais conquistados por nossos alunos no último concurso de Arquiteto da Prefeitura de Campinas (2025) — incluindo <strong style={{ color: "#3d1a8f" }}>2 alunos entre os 10 primeiros lugares</strong>.
             </p>
             <div className="divider-brand mt-5" />
           </div>
