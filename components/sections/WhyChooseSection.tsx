@@ -151,7 +151,7 @@ export default function WhyChooseSection() {
 
           {/* Highlights pormenorizados (5º e 10º lugar) */}
           <div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6 text-left"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left"
           >
             {/* 5º Lugar */}
             <div
@@ -220,17 +220,7 @@ export default function WhyChooseSection() {
             </div>
           </div>
 
-          {/* Resumo Numérico */}
-          <p
-            style={{
-              fontSize: "0.85rem",
-              color: "#6b7280",
-              lineHeight: 1.5,
-              fontWeight: 500,
-            }}
-          >
-            Ao todo, 12 alunos que estudaram pela nossa metodologia garantiram suas classificações na lista oficial.
-          </p>
+
         </div>
       </div>
     </section>
