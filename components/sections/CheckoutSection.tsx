@@ -1,11 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { FORM_URL } from "@/lib/data";
-import { ArrowRight, ShieldCheck, CreditCard, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, ShieldCheck, CreditCard, CheckCircle2, Star, Copy, Check } from "lucide-react";
 import { useReveal } from "@/lib/hooks";
 
 export default function CheckoutSection() {
   const { ref, visible } = useReveal(0.15);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyCoupon = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText("LANCAMENTO20");
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  };
 
   return (
     <section
@@ -129,17 +139,49 @@ export default function CheckoutSection() {
                   ou parcelado no cartão
                 </p>
 
-                {/* Destaque do Cupom de Lançamento */}
+                {/* Destaque do Cupom de Lançamento (Copiável ao toque/clique) */}
                 <div
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1 cursor-pointer select-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
                   style={{
-                    background: "#fefce8",
-                    border: "1.5px dashed #eab308",
-                    color: "#854d0e",
+                    background: copied ? "#dcfce7" : "#fefce8",
+                    border: copied ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
+                    color: copied ? "#14532d" : "#854d0e",
                     fontFamily: "var(--font-plus-jakarta)",
                   }}
+                  onClick={handleCopyCoupon}
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Clique para copiar o cupom de desconto LANCAMENTO20"
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon(); }}
+                  title="Clique para copiar o cupom"
                 >
-                  🏷️ Usando o cupom: <span style={{ color: "#a16207", fontWeight: 900, letterSpacing: "0.05em", background: "#fef9c3", padding: "2px 6px", borderRadius: "4px", border: "1px solid #fde047" }}>LANCAMENTO20</span>
+                  <span>🏷️ Usando o cupom:</span>
+                  <span
+                    style={{
+                      color: copied ? "#15803d" : "#a16207",
+                      fontWeight: 900,
+                      letterSpacing: "0.05em",
+                      background: copied ? "#bbf7d0" : "#fef9c3",
+                      padding: "2px 8px",
+                      borderRadius: "4px",
+                      border: copied ? "1px solid #86efac" : "1px solid #fde047",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "4px",
+                    }}
+                  >
+                    {copied ? (
+                      <>
+                        <Check size={13} className="text-emerald-700" />
+                        COPIADO!
+                      </>
+                    ) : (
+                      <>
+                        LANCAMENTO20
+                        <Copy size={13} className="text-amber-700 opacity-75" />
+                      </>
+                    )}
+                  </span>
                 </div>
               </div>
             </div>
