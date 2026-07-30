@@ -100,7 +100,7 @@ export default function CampinasResultsSection() {
                   5º Lugar Geral
                 </p>
                 <p style={{ fontSize: "0.82rem", color: "#16a34a", fontWeight: 700, marginTop: "3px" }}>
-                  Aluno Convocado e Nomeado
+                  Thiago Darlan Silva Fonseca
                 </p>
               </div>
             </div>
