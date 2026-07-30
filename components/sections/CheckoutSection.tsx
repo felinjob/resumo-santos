@@ -105,7 +105,7 @@ export default function CheckoutSection() {
             </ul>
 
             {/* Preço */}
-            <div style={{ marginBottom: "1rem" }}>
+            <div style={{ marginBottom: "1.25rem" }}>
               <p style={{ fontSize: "0.8rem", color: "#6b7280", fontWeight: 600, marginBottom: "2px" }}>
                 De <span className="line-through text-red-500 font-bold">R$ 237,00</span> por
               </p>
@@ -120,13 +120,26 @@ export default function CheckoutSection() {
                     letterSpacing: "-0.03em",
                   }}
                 >
-                  R$ 197,00
+                  R$ 189,60
                 </span>
                 <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
               </div>
-              <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "4px" }}>
+              <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "2px", marginBottom: "8px" }}>
                 ou parcelado no cartão
               </p>
+
+              {/* Destaque do Cupom de Lançamento */}
+              <div
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1"
+                style={{
+                  background: "#fefce8",
+                  border: "1.5px dashed #eab308",
+                  color: "#854d0e",
+                  fontFamily: "var(--font-plus-jakarta)",
+                }}
+              >
+                🏷️ Usando o cupom: <span style={{ color: "#a16207", fontWeight: 900, letterSpacing: "0.05em", background: "#fef9c3", padding: "2px 6px", borderRadius: "4px", border: "1px solid #fde047" }}>LANCAMENTO20</span>
+              </div>
             </div>
 
             <a
