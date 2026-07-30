@@ -1,5 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection";
-import BenefitsSection from "@/components/sections/BenefitsSection";
+import WhyChooseSection from "@/components/sections/WhyChooseSection";
 import ScheduleSection from "@/components/sections/ScheduleSection";
 import AuthorsSection from "@/components/sections/AuthorsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -14,8 +14,8 @@ export default function Home() {
       {/* 1. HeroSection (com faixa de métricas embutida) */}
       <HeroSection />
 
-      {/* 2. BenefitsSection */}
-      <BenefitsSection />
+      {/* 2. WhyChooseSection (Por que nossos resumos são a melhor escolha? + Prova Social Campinas) */}
+      <WhyChooseSection />
 
       {/* 3. ScheduleSection */}
       <ScheduleSection />
@@ -40,4 +40,3 @@ export default function Home() {
     </main>
   );
 }
-

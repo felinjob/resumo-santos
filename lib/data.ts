@@ -144,22 +144,19 @@ export const authors: Author[] = [
 
 export const benefits: Benefit[] = [
   {
-    iconName: "Zap",
-    title: "Chega de perder horas no texto bruto da lei",
-    description:
-      "Transformamos artigos longos e burocráticos em esquemas visuais diretos. Você estuda o que realmente cai na prova da IBAM — sem enrolação.",
+    iconName: "UserCheck",
+    title: "Feito por quem entende",
+    description: "Elaborado por profissionais aprovados e nomeados no serviço público.",
   },
   {
-    iconName: "LayoutGrid",
-    title: "Resumos em PDF + Vídeoaulas de questões",
-    description:
-      "Além dos resumos esquematizados com tabelas e fluxogramas, você terá acesso a vídeoaulas com resolução de questões focadas no perfil da banca IBAM.",
+    iconName: "Clock",
+    title: "Otimize seus estudos",
+    description: "Estude diretamente o que é mais relevante, economizando tempo precioso de leitura da Lei Seca.",
   },
   {
-    iconName: "Building2",
-    title: "Mapeamento prático do exercício profissional",
-    description:
-      "Feito por quem conhece o dia a dia da fiscalização, aprovação de projetos e legislação urbana no serviço público. Experiência real, não teoria vaga.",
+    iconName: "Target",
+    title: "Foco 100% na banca IBAM",
+    description: "Conteúdo esquematizado e questões direcionadas ao perfil e histórico da banca organizadora.",
   },
 ];
 
