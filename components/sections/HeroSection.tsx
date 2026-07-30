@@ -151,8 +151,10 @@ export default function HeroSection() {
                   ...fadeStyle(150),
                 }}
               >
-                <strong style={{ color: "#ffffff", fontWeight: 700 }}>Resumos em PDF + Vídeoaulas inéditas</strong>{" "}
-                esquematizadas com tabelas comparativas, fluxogramas de licenciamento e questões direcionadas ao perfil da banca IBAM. Criado por quem vive a legislação na prática do serviço público.
+                <strong style={{ color: "#ffffff", fontWeight: 700 }}>
+                  Resumos em PDF + Vídeoaulas com resolução de questões inéditas com foco 100% na banca IBAM.
+                </strong>{" "}
+                Tabelas comparativas, fluxogramas e esquemas visuais. Criado por quem vive a legislação na prática do serviço público.
               </p>
 
               {/* CTAs */}
