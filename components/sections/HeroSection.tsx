@@ -267,10 +267,10 @@ export default function HeroSection() {
               className="metrics-grid"
             >
               {[
-                { val: "8",        label: "Resumos em PDF"       },
-                { val: "100%",     label: "Foco banca IBAM"      },
-                { val: "Vídeo",    label: "Questões resolvidas"  },
-                { val: "PDF+",     label: "Vídeoaulas"           },
+                { val: "8",           label: "Resumos em PDF"   },
+                { val: "100%",        label: "Foco banca IBAM"  },
+                { val: "Vídeoaulas",  label: "Exclusivas"       },
+                { val: "Questões",    label: "Inéditas"         },
               ].map((m) => (
                 <div key={m.label} className="card-glass-on-brand text-center py-4 px-3">
                   <div

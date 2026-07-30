@@ -44,7 +44,7 @@ export default function AuthorsSection() {
               key={a.name}
               className={`card-white p-7 reveal reveal-d${i + 2} ${visible ? "is-visible" : ""}`}
             >
-              {/* Foto real destacada (maior) + nome */}
+              {/* Foto real destacada + nome */}
               <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 mb-5">
                 <div
                   className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden flex-shrink-0"
@@ -58,8 +58,12 @@ export default function AuthorsSection() {
                     src={a.image}
                     alt={`Foto de ${a.name}`}
                     fill
-                    sizes="128px"
-                    style={{ objectFit: "cover", objectPosition: "center top" }}
+                    unoptimized
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: a.name.includes("Raquel") ? "center 15%" : "center top",
+                      filter: "contrast(1.05) brightness(1.02)",
+                    }}
                   />
                 </div>
                 <div className="flex-1">

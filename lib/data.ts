@@ -163,8 +163,8 @@ export const benefits: Benefit[] = [
 export const metrics: Metric[] = [
   { value: "8", label: "Resumos em PDF", iconName: "FileText" },
   { value: "100%", label: "Foco banca IBAM", iconName: "Target" },
-  { value: "Vídeo", label: "Questões resolvidas", iconName: "Layers" },
-  { value: "PDF+", label: "Vídeoaulas", iconName: "Download" },
+  { value: "Vídeoaulas", label: "Exclusivas", iconName: "Layers" },
+  { value: "Questões", label: "Inéditas", iconName: "Download" },
 ];
 
 export const guarantees = [

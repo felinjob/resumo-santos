@@ -1,8 +1,7 @@
 import HeroSection from "@/components/sections/HeroSection";
-import MetricsSection from "@/components/sections/MetricsSection";
-import BenefitsSection from "@/components/sections/BenefitsSection";
-import ScheduleSection from "@/components/sections/ScheduleSection";
 import WhyChooseSection from "@/components/sections/WhyChooseSection";
+import ScheduleSection from "@/components/sections/ScheduleSection";
+import CampinasResultsSection from "@/components/sections/CampinasResultsSection";
 import AuthorsSection from "@/components/sections/AuthorsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CheckoutSection from "@/components/sections/CheckoutSection";
@@ -13,34 +12,31 @@ import StickyMobileCta from "@/components/StickyMobileCta";
 export default function Home() {
   return (
     <main className="relative">
-      {/* 1. HeroSection */}
+      {/* 1. HeroSection (com os 4 boxes de métricas/destaque) */}
       <HeroSection />
 
-      {/* 2. MetricsSection */}
-      <MetricsSection />
-
-      {/* 3. BenefitsSection ("Por que nossos resumos?") */}
-      <BenefitsSection />
-
-      {/* 4. ScheduleSection (Cronograma de liberação) */}
-      <ScheduleSection />
-
-      {/* 5. WhyChooseSection (12 Classificados + Spotlight Thiago 5º Lugar) */}
+      {/* 2. WhyChooseSection ("Por que nossos resumos são a melhor escolha?" — 3 diferenciais) */}
       <WhyChooseSection />
 
-      {/* 6. AuthorsSection (Quem serão seus professores) */}
+      {/* 3. ScheduleSection (Cronograma de liberação em ciclos) */}
+      <ScheduleSection />
+
+      {/* 4. CampinasResultsSection (12 ALUNOS CLASSIFICADOS + 2 no Top 10 + Depoimento Thiago 5º Lugar) */}
+      <CampinasResultsSection />
+
+      {/* 5. AuthorsSection (Quem serão seus professores) */}
       <AuthorsSection />
 
-      {/* 7. TestimonialsSection (Prints de Depoimentos - iniciando por Vanessa) */}
+      {/* 6. TestimonialsSection (Prints de Depoimentos WhatsApp — iniciando por Vanessa Rodrigues) */}
       <TestimonialsSection />
 
-      {/* 8. CheckoutSection (Oferta Eduzz) */}
+      {/* 7. CheckoutSection (Oferta principal Eduzz) */}
       <CheckoutSection />
 
-      {/* 9. FaqSection */}
+      {/* 8. FaqSection (Dúvidas frequentes) */}
       <FaqSection />
 
-      {/* 10. FooterSection */}
+      {/* 9. FooterSection */}
       <FooterSection />
 
       {/* Sticky CTA Flutuante para Dispositivos Móveis */}
