@@ -264,7 +264,7 @@ export default function ScheduleSection() {
                         rel="noopener noreferrer"
                         className="btn-outline-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                         aria-label="Baixe sua amostra em PDF da Lei Complementar 1.196/2023"
-                        style={{ gap: "6px" }}
+                        style={{ gap: "6px", marginTop: "8px" }}
                       >
                         <Download size={13} />
                         Baixe sua amostra

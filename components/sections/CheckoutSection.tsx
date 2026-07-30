@@ -185,13 +185,13 @@ export default function CheckoutSection() {
                 marginTop: "0.5rem",
               }}
             >
-              Combo Legislação + Plano de Estudos Arq Concurso
+              Combo Legislação + Plano de Estudos ArqConcurso
             </h3>
 
             <ul style={{ marginBottom: "1.25rem" }} className="space-y-2">
               {[
                 "Tudo do Curso de Legislação Municipal incluído",
-                "Plano de Estudos personalizado Arq Concurso",
+                "Plano de Estudos personalizado ArqConcurso",
                 "Cronograma estratégico para a prova",
                 "Material complementar exclusivo",
               ].map((item) => (
