@@ -191,17 +191,7 @@ export default function CampinasResultsSection() {
             </p>
           </div>
 
-          {/* Nota de privacidade LGPD */}
-          <p
-            className="text-center"
-            style={{
-              fontSize: "0.76rem",
-              color: "#9ca3af",
-              fontStyle: "italic",
-            }}
-          >
-            * Nomes preservados em conformidade com a LGPD e privacidade dos alunos.
-          </p>
+
         </div>
       </section>
 
