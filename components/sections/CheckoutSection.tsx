@@ -58,7 +58,7 @@ export default function CheckoutSection() {
               fontSize: "0.93rem",
               maxWidth: "480px",
               lineHeight: 1.7,
-              textAlign: "justify",
+              textAlign: "center",
             }}
           >
             Garanta acesso à toda legislação municipal pelo valor promocional de lançamento.
@@ -72,7 +72,7 @@ export default function CheckoutSection() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto"
           style={{ marginBottom: "2rem" }}
         >
-          {/* ── OPÇÃO 1: Curso Avulso ── */}
+          {/* ── OPÇÃO 1: Curso de Legislação Municipal ── */}
           <div
             className={`card-brand reveal reveal-d1 ${visible ? "is-visible" : ""}`}
             style={{ padding: "clamp(1.5rem, 4vw, 2rem)", position: "relative" }}
@@ -87,7 +87,7 @@ export default function CheckoutSection() {
                 lineHeight: 1.3,
               }}
             >
-              Curso de Legislação Avulso
+              Curso de Legislação Municipal
             </h3>
 
             <ul style={{ marginBottom: "1.25rem" }} className="space-y-2">
@@ -130,12 +130,12 @@ export default function CheckoutSection() {
             </div>
 
             <a
-              id="cta-checkout-avulso"
+              id="cta-checkout-curso"
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 w-full"
-              aria-label="Quero ser aprovado — Curso avulso"
+              aria-label="Quero ser aprovado — Curso de Legislação Municipal"
               style={{ fontSize: "0.95rem", padding: "0.9rem 1.5rem" }}
             >
               Quero ser aprovado!
@@ -185,13 +185,13 @@ export default function CheckoutSection() {
                 marginTop: "0.5rem",
               }}
             >
-              Combo Legislação + Plano de Estudos Arquiteto Concurso
+              Combo Legislação + Plano de Estudos Arq Concurso
             </h3>
 
             <ul style={{ marginBottom: "1.25rem" }} className="space-y-2">
               {[
-                "Tudo do Curso Avulso incluído",
-                "Plano de Estudos personalizado Arquiteto Concurso",
+                "Tudo do Curso de Legislação Municipal incluído",
+                "Plano de Estudos personalizado Arq Concurso",
                 "Cronograma estratégico para a prova",
                 "Material complementar exclusivo",
               ].map((item) => (

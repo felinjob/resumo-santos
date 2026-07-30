@@ -256,8 +256,8 @@ export default function ScheduleSection() {
                       </div>
                     </div>
 
-                    {/* Botão amostra — apenas para o item 01 já liberado */}
-                    {isPdfReleased && (
+                    {/* Botão amostra — para o primeiro item do cronograma */}
+                    {i === 0 && (
                       <a
                         href="/Amostra-Resumo-Santos.pdf"
                         target="_blank"

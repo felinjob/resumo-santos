@@ -48,7 +48,7 @@ export const scheduleItems: ScheduleItem[] = [
     description: "Licenciamento Ambiental Municipal",
     pdfDate: "01/08",
     videoDate: "25/09",
-    pdfStatus: "released",
+    pdfStatus: "upcoming",
     videoStatus: "upcoming",
   },
   {
