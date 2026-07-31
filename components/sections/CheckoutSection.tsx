@@ -288,45 +288,45 @@ export default function CheckoutSection() {
                   ou parcelado no cartão
                 </p>
 
-                {/* Destaque do Cupom COMBO20OFF (Copiável) */}
+                {/* Destaque do Cupom COMBO20 (Copiável) */}
                 <div
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1 cursor-pointer select-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
                   style={{
-                    background: copiedCoupon === "COMBO20OFF" ? "#dcfce7" : "#fefce8",
-                    border: copiedCoupon === "COMBO20OFF" ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
-                    color: copiedCoupon === "COMBO20OFF" ? "#14532d" : "#854d0e",
+                    background: copiedCoupon === "COMBO20" ? "#dcfce7" : "#fefce8",
+                    border: copiedCoupon === "COMBO20" ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
+                    color: copiedCoupon === "COMBO20" ? "#14532d" : "#854d0e",
                     fontFamily: "var(--font-plus-jakarta)",
                   }}
-                  onClick={() => handleCopyCoupon("COMBO20OFF")}
+                  onClick={() => handleCopyCoupon("COMBO20")}
                   role="button"
                   tabIndex={0}
-                  aria-label="Clique para copiar o cupom COMBO20OFF"
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon("COMBO20OFF"); }}
+                  aria-label="Clique para copiar o cupom COMBO20"
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon("COMBO20"); }}
                   title="Clique para copiar o cupom"
                 >
                   <span>🏷️ Usando o cupom:</span>
                   <span
                     style={{
-                      color: copiedCoupon === "COMBO20OFF" ? "#15803d" : "#a16207",
+                      color: copiedCoupon === "COMBO20" ? "#15803d" : "#a16207",
                       fontWeight: 900,
                       letterSpacing: "0.05em",
-                      background: copiedCoupon === "COMBO20OFF" ? "#bbf7d0" : "#fef9c3",
+                      background: copiedCoupon === "COMBO20" ? "#bbf7d0" : "#fef9c3",
                       padding: "2px 8px",
                       borderRadius: "4px",
-                      border: copiedCoupon === "COMBO20OFF" ? "1px solid #86efac" : "1px solid #fde047",
+                      border: copiedCoupon === "COMBO20" ? "1px solid #86efac" : "1px solid #fde047",
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "4px",
                     }}
                   >
-                    {copiedCoupon === "COMBO20OFF" ? (
+                    {copiedCoupon === "COMBO20" ? (
                       <>
                         <Check size={13} className="text-emerald-700" />
                         COPIADO!
                       </>
                     ) : (
                       <>
-                        COMBO20OFF
+                        COMBO20
                         <Copy size={13} className="text-amber-700 opacity-75" />
                       </>
                     )}
