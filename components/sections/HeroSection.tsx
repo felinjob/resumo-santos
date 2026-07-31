@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FORM_URL, EDITAL_URL } from "@/lib/data";
+import { CHECKOUT_CURSO_URL, EDITAL_URL } from "@/lib/data";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -164,7 +164,7 @@ export default function HeroSection() {
               >
                 <a
                   id="cta-hero-primary"
-                  href={FORM_URL}
+                  href={CHECKOUT_CURSO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"

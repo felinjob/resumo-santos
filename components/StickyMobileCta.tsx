@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FORM_URL } from "@/lib/data";
+import { CHECKOUT_CURSO_URL } from "@/lib/data";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
 export default function StickyMobileCta() {
@@ -78,13 +78,13 @@ export default function StickyMobileCta() {
           </div>
           <p className="text-xs font-semibold text-white leading-tight">
             12x <span className="font-extrabold text-emerald-400">R$ 19,90</span>{" "}
-            <span className="text-[0.7rem] text-purple-300 font-normal">ou R$ 197</span>
+            <span className="text-[0.7rem] text-purple-300 font-normal">ou R$ 198,90</span>
           </p>
         </div>
 
         {/* Lado direito — Botão CTA compacto e refinado */}
         <a
-          href={FORM_URL}
+          href={CHECKOUT_CURSO_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-cta text-xs py-2 px-3.5 font-extrabold rounded-xl flex items-center gap-1.5 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 flex-shrink-0"
