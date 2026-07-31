@@ -1,20 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { FORM_URL } from "@/lib/data";
+import { CHECKOUT_CURSO_URL, CHECKOUT_COMBO_URL } from "@/lib/data";
 import { ArrowRight, ShieldCheck, CreditCard, CheckCircle2, Star, Copy, Check } from "lucide-react";
 import { useReveal } from "@/lib/hooks";
 
 export default function CheckoutSection() {
   const { ref, visible } = useReveal(0.15);
-  const [copied, setCopied] = useState(false);
+  const [copiedCoupon, setCopiedCoupon] = useState<string | null>(null);
 
-  const handleCopyCoupon = () => {
+  const handleCopyCoupon = (code: string) => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText("LANCAMENTO20");
+      navigator.clipboard.writeText(code);
     }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
+    setCopiedCoupon(code);
+    setTimeout(() => setCopiedCoupon(null), 2200);
   };
 
   return (
@@ -118,7 +118,7 @@ export default function CheckoutSection() {
               {/* Preço */}
               <div style={{ marginBottom: "1.25rem" }}>
                 <p style={{ fontSize: "0.8rem", color: "#6b7280", fontWeight: 600, marginBottom: "2px" }}>
-                  De <span className="line-through text-red-500 font-bold">R$ 237,00</span> por
+                  De <span className="line-through text-red-500 font-bold">R$ 234,00</span> por
                 </p>
                 <div className="flex items-baseline gap-1.5 flex-wrap">
                   <span
@@ -131,7 +131,7 @@ export default function CheckoutSection() {
                       letterSpacing: "-0.03em",
                     }}
                   >
-                    R$ 189,60
+                    R$ 198,90
                   </span>
                   <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
                 </div>
@@ -139,45 +139,45 @@ export default function CheckoutSection() {
                   ou parcelado no cartão
                 </p>
 
-                {/* Destaque do Cupom de Lançamento (Copiável ao toque/clique) */}
+                {/* Destaque do Cupom LANCAMENTO15 (Copiável) */}
                 <div
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1 cursor-pointer select-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
                   style={{
-                    background: copied ? "#dcfce7" : "#fefce8",
-                    border: copied ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
-                    color: copied ? "#14532d" : "#854d0e",
+                    background: copiedCoupon === "LANCAMENTO15" ? "#dcfce7" : "#fefce8",
+                    border: copiedCoupon === "LANCAMENTO15" ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
+                    color: copiedCoupon === "LANCAMENTO15" ? "#14532d" : "#854d0e",
                     fontFamily: "var(--font-plus-jakarta)",
                   }}
-                  onClick={handleCopyCoupon}
+                  onClick={() => handleCopyCoupon("LANCAMENTO15")}
                   role="button"
                   tabIndex={0}
-                  aria-label="Clique para copiar o cupom de desconto LANCAMENTO20"
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon(); }}
+                  aria-label="Clique para copiar o cupom LANCAMENTO15"
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon("LANCAMENTO15"); }}
                   title="Clique para copiar o cupom"
                 >
                   <span>🏷️ Usando o cupom:</span>
                   <span
                     style={{
-                      color: copied ? "#15803d" : "#a16207",
+                      color: copiedCoupon === "LANCAMENTO15" ? "#15803d" : "#a16207",
                       fontWeight: 900,
                       letterSpacing: "0.05em",
-                      background: copied ? "#bbf7d0" : "#fef9c3",
+                      background: copiedCoupon === "LANCAMENTO15" ? "#bbf7d0" : "#fef9c3",
                       padding: "2px 8px",
                       borderRadius: "4px",
-                      border: copied ? "1px solid #86efac" : "1px solid #fde047",
+                      border: copiedCoupon === "LANCAMENTO15" ? "1px solid #86efac" : "1px solid #fde047",
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "4px",
                     }}
                   >
-                    {copied ? (
+                    {copiedCoupon === "LANCAMENTO15" ? (
                       <>
                         <Check size={13} className="text-emerald-700" />
                         COPIADO!
                       </>
                     ) : (
                       <>
-                        LANCAMENTO20
+                        LANCAMENTO15
                         <Copy size={13} className="text-amber-700 opacity-75" />
                       </>
                     )}
@@ -190,7 +190,7 @@ export default function CheckoutSection() {
             <div className="mt-auto pt-2">
               <a
                 id="cta-checkout-curso"
-                href={FORM_URL}
+                href={CHECKOUT_CURSO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 w-full"
@@ -247,13 +247,13 @@ export default function CheckoutSection() {
                   marginTop: "0.5rem",
                 }}
               >
-                Combo Legislação + Plano de Estudos ArqConcurso
+                Combo Legislação + Plano de Estudos ArqConcurso (75 dias)
               </h3>
 
               <ul style={{ marginBottom: "1.25rem" }} className="space-y-2">
                 {[
                   "Tudo do Curso de Legislação Municipal incluído",
-                  "Plano de Estudos personalizado ArqConcurso",
+                  "Plano de Estudos personalizado ArqConcurso (75 dias)",
                   "Cronograma estratégico para a prova",
                   "Material complementar exclusivo",
                 ].map((item) => (
@@ -264,21 +264,74 @@ export default function CheckoutSection() {
                 ))}
               </ul>
 
-              {/* Preço — placeholder */}
+              {/* Preço Combo */}
               <div style={{ marginBottom: "1.25rem" }}>
-                <p
+                <p style={{ fontSize: "0.8rem", color: "#6b7280", fontWeight: 600, marginBottom: "2px" }}>
+                  De <span className="line-through text-red-500 font-bold">R$ 319,00</span> por
+                </p>
+                <div className="flex items-baseline gap-1.5 flex-wrap">
+                  <span
+                    style={{
+                      fontFamily: "var(--font-plus-jakarta)",
+                      fontSize: "clamp(2rem, 5vw, 2.6rem)",
+                      fontWeight: 800,
+                      color: "#3d1a8f",
+                      lineHeight: 1,
+                      letterSpacing: "-0.03em",
+                    }}
+                  >
+                    R$ 255,20
+                  </span>
+                  <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
+                </div>
+                <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "2px", marginBottom: "8px" }}>
+                  ou parcelado no cartão
+                </p>
+
+                {/* Destaque do Cupom COMBO20OFF (Copiável) */}
+                <div
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1 cursor-pointer select-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
                   style={{
-                    fontSize: "0.85rem",
-                    color: "#5226b3",
-                    fontWeight: 700,
+                    background: copiedCoupon === "COMBO20OFF" ? "#dcfce7" : "#fefce8",
+                    border: copiedCoupon === "COMBO20OFF" ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
+                    color: copiedCoupon === "COMBO20OFF" ? "#14532d" : "#854d0e",
                     fontFamily: "var(--font-plus-jakarta)",
                   }}
+                  onClick={() => handleCopyCoupon("COMBO20OFF")}
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Clique para copiar o cupom COMBO20OFF"
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon("COMBO20OFF"); }}
+                  title="Clique para copiar o cupom"
                 >
-                  Consulte condições especiais
-                </p>
-                <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "4px" }}>
-                  Parcelamento disponível no cartão
-                </p>
+                  <span>🏷️ Usando o cupom:</span>
+                  <span
+                    style={{
+                      color: copiedCoupon === "COMBO20OFF" ? "#15803d" : "#a16207",
+                      fontWeight: 900,
+                      letterSpacing: "0.05em",
+                      background: copiedCoupon === "COMBO20OFF" ? "#bbf7d0" : "#fef9c3",
+                      padding: "2px 8px",
+                      borderRadius: "4px",
+                      border: copiedCoupon === "COMBO20OFF" ? "1px solid #86efac" : "1px solid #fde047",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "4px",
+                    }}
+                  >
+                    {copiedCoupon === "COMBO20OFF" ? (
+                      <>
+                        <Check size={13} className="text-emerald-700" />
+                        COPIADO!
+                      </>
+                    ) : (
+                      <>
+                        COMBO20OFF
+                        <Copy size={13} className="text-amber-700 opacity-75" />
+                      </>
+                    )}
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -286,14 +339,14 @@ export default function CheckoutSection() {
             <div className="mt-auto pt-2">
               <a
                 id="cta-checkout-combo"
-                href={FORM_URL}
+                href={CHECKOUT_COMBO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400 w-full"
-                aria-label="Quero ser aprovado — Combo completo"
+                aria-label="Quero o Combo — Combo completo"
                 style={{ fontSize: "0.95rem", padding: "0.9rem 1.5rem" }}
               >
-                Quero ser aprovado!
+                Quero o Combo!
                 <ArrowRight size={18} />
               </a>
             </div>

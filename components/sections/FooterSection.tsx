@@ -10,7 +10,7 @@ export default function FooterSection() {
     <footer
       style={{
         background: "#1e0a4a",
-        padding: "3.5rem 0 2rem",
+        padding: "3.5rem 0 clamp(6rem, 12vw, 2.5rem)",
         borderTop: "1px solid rgba(139,92,246,0.2)",
       }}
     >

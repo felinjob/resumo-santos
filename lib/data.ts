@@ -1,7 +1,7 @@
-// lib/data.ts — dados estáticos da landing page Santos 2026
+export const CHECKOUT_CURSO_URL = "https://chk.eduzz.com/E9OG65XGWB";
+export const CHECKOUT_COMBO_URL = "https://chk.eduzz.com/y5ufxzc7";
 
-export const FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSd-qQi14c5zF6aKfdsjREhU3i19z7KZq_tcLNztzQccHRFi6Q/viewform?usp=preview";
+export const FORM_URL = CHECKOUT_CURSO_URL;
 
 export const EDITAL_URL = "https://www.ibamsp-concursos.org.br/informacoes/179/";
 
