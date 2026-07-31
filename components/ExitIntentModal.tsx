@@ -66,7 +66,7 @@ export default function ExitIntentModal() {
         </h3>
 
         <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-          Veja com seus próprios olhos a qualidade das 10 primeiras páginas esquematizadas com esquemas, tabelas e mapas visuais.
+          Comprove a qualidade do nosso material. Baixe agora um trecho de 10 páginas com resumos, tabelas de prazos e esquemas visuais da legislação de Santos.
         </p>
 
         <div className="flex flex-col gap-3">

@@ -4,13 +4,10 @@ import ScheduleSection from "@/components/sections/ScheduleSection";
 import CampinasResultsSection from "@/components/sections/CampinasResultsSection";
 import AuthorsSection from "@/components/sections/AuthorsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import TargetAudienceSection from "@/components/sections/TargetAudienceSection";
 import CheckoutSection from "@/components/sections/CheckoutSection";
 import FaqSection from "@/components/sections/FaqSection";
 import FooterSection from "@/components/sections/FooterSection";
 import StickyMobileCta from "@/components/StickyMobileCta";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
-import SalesNotificationToast from "@/components/SalesNotificationToast";
 import ExitIntentModal from "@/components/ExitIntentModal";
 
 export default function Home() {
@@ -34,22 +31,17 @@ export default function Home() {
       {/* 6. TestimonialsSection (Prints de Depoimentos WhatsApp) */}
       <TestimonialsSection />
 
-      {/* 7. TargetAudienceSection (Para quem é / Para quem não é) */}
-      <TargetAudienceSection />
-
-      {/* 8. CheckoutSection (Oferta principal Eduzz) */}
+      {/* 7. CheckoutSection (Oferta principal Eduzz) */}
       <CheckoutSection />
 
-      {/* 9. FaqSection (Dúvidas frequentes) */}
+      {/* 8. FaqSection (Dúvidas frequentes) */}
       <FaqSection />
 
-      {/* 10. FooterSection */}
+      {/* 9. FooterSection */}
       <FooterSection />
 
       {/* Elementos Flutuantes de Conversão & UX */}
       <StickyMobileCta />
-      <WhatsAppWidget />
-      <SalesNotificationToast />
       <ExitIntentModal />
     </main>
   );
