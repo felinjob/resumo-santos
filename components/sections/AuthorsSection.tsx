@@ -192,102 +192,92 @@ export default function AuthorsSection() {
       </div>
 
       {/* ══════════════════════════════════════════
-          MINI CARD MODAL / LIGHTBOX DO PROFESSOR
+          LIGHTBOX PORTRAIT DO PROFESSOR (DESTAQUE FOTOGRÁFICO)
           ══════════════════════════════════════════ */}
       {selectedAuthor && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn select-none"
           onClick={() => setSelectedAuthor(null)}
           role="dialog"
           aria-modal="true"
         >
           <div
-            className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 shadow-2xl overflow-hidden border border-purple-100 text-center"
+            className="relative w-full max-w-sm sm:max-w-md bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-purple-500/30 text-left flex flex-col"
             onClick={(e) => e.stopPropagation()}
+            style={{ maxHeight: "88vh" }}
           >
-            {/* Top accent bar */}
-            <div
-              className="absolute top-0 left-0 right-0 h-2.5"
-              style={{ background: "linear-gradient(90deg, #8b5cf6, #5226b3)" }}
-            />
-
             {/* Fechar botão */}
             <button
               onClick={() => setSelectedAuthor(null)}
-              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-700 rounded-full hover:bg-gray-100 transition-colors"
-              aria-label="Fechar card do professor"
+              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-105"
+              aria-label="Fechar foto do professor"
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
-            {/* Foto Ampliada */}
+            {/* Foto Ampliada em Alta Qualidade / Retrato */}
             <div
-              className="relative w-36 h-36 mx-auto mb-4 rounded-2xl overflow-hidden shadow-xl"
-              style={{
-                border: "4px solid #8b5cf6",
-                boxShadow: "0 12px 30px rgba(139, 92, 246, 0.35)",
-                background: "linear-gradient(135deg, #5226b3, #3d1a8f)",
-              }}
+              className="relative w-full aspect-[4/5] bg-gray-950 flex items-center justify-center overflow-hidden"
             >
               <Image
                 src={selectedAuthor.image}
                 alt={selectedAuthor.name}
                 fill
                 unoptimized
+                priority
                 style={{
                   objectFit: "cover",
                   objectPosition: selectedAuthor.name.includes("Raquel") ? "center 15%" : "center top",
                 }}
               />
-            </div>
 
-            {/* Nome e Cargo */}
-            <h3
-              style={{
-                fontFamily: "var(--font-plus-jakarta)",
-                fontSize: "1.35rem",
-                fontWeight: 800,
-                color: "#111827",
-                marginBottom: "4px",
-              }}
-            >
-              {selectedAuthor.name}
-            </h3>
+              {/* Sombra de gradiente inferior para legibilidade da legenda */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/40 to-transparent" />
 
-            <p style={{ fontSize: "0.85rem", color: "#6d35cc", fontWeight: 700, lineHeight: 1.4 }}>
-              {selectedAuthor.role}
-            </p>
+              {/* Legenda Glassmorphism sobreposta na base da foto */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 backdrop-blur-md bg-gray-950/60 border-t border-white/10 flex flex-col gap-2">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <h3
+                      className="text-white font-extrabold text-lg sm:text-xl tracking-tight"
+                      style={{ fontFamily: "var(--font-plus-jakarta)" }}
+                    >
+                      {selectedAuthor.name}
+                    </h3>
+                    <span className="text-[0.68rem] font-extrabold px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 uppercase tracking-wider">
+                      Professor(a)
+                    </span>
+                  </div>
 
-            <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "2px", marginBottom: "1rem" }}>
-              {selectedAuthor.organization}
-            </p>
+                  <p className="text-xs font-bold text-purple-300 leading-snug">
+                    {selectedAuthor.role}
+                  </p>
+                  <p className="text-[0.75rem] text-gray-400 mt-0.5 font-medium">
+                    {selectedAuthor.organization}
+                  </p>
+                </div>
 
-            {/* Redes sociais com ícones */}
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-xs font-bold shadow-md hover:opacity-90 transition-opacity"
-              >
-                <InstagramIcon size={14} />
-                <span>Instagram</span>
-              </a>
+                {/* Botões sociais no próprio overlay da foto */}
+                <div className="flex items-center gap-2.5 mt-2 pt-2 border-t border-white/10">
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-extrabold shadow-lg transition-all active:scale-95"
+                  >
+                    <InstagramIcon size={14} />
+                    <span>Instagram</span>
+                  </a>
 
-              <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-md hover:bg-blue-700 transition-colors"
-              >
-                <LinkedinIcon size={14} />
-                <span>LinkedIn</span>
-              </a>
-            </div>
-
-            {/* Resumo da Bio */}
-            <div className="p-4 rounded-2xl bg-purple-50/60 border border-purple-100 text-left">
-              <p style={{ fontSize: "0.82rem", color: "#374151", lineHeight: 1.6 }}>
-                {selectedAuthor.bio}
-              </p>
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-extrabold shadow-lg transition-all active:scale-95"
+                  >
+                    <LinkedinIcon size={14} />
+                    <span>LinkedIn</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
