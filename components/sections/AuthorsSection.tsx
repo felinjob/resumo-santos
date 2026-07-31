@@ -29,7 +29,7 @@ export default function AuthorsSection() {
             <span className="text-gradient">Resultado comprovado.</span>
           </h2>
           <p style={{ color: "#c4b5fd", fontSize: "0.95rem", maxWidth: "420px", margin: "0 auto" }}>
-            Seus professores já estiveram onde você quer chegar.
+            Elaborado por profissionais que vivem a legislação na prática do serviço público.
           </p>
           <div
             className="divider-brand mt-5"

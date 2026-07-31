@@ -186,36 +186,6 @@ export default function HeroSection() {
                 </a>
               </div>
 
-              {/* Âncora de preço — reduz taxa de rejeição */}
-              <p
-                style={{
-                  color: "#ddd6fe",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  marginBottom: "0.5rem",
-                  opacity: show ? 1 : 0,
-                  transition: "opacity 0.6s ease 280ms",
-                  fontFamily: "var(--font-plus-jakarta)",
-                }}
-              >
-                A partir de{" "}
-                <span style={{ color: "#4ade80", fontWeight: 800 }}>12x R$ 20,57</span>
-                {" "}· Garantia de 7 dias
-              </p>
-
-              {/* Prova social */}
-              <p
-                style={{
-                  color: "#c4b5fd",
-                  fontSize: "0.8rem",
-                  marginBottom: "2rem",
-                  opacity: show ? 0.9 : 0,
-                  transition: "opacity 0.7s ease 320ms",
-                }}
-              >
-                ✦ 12 alunos classificados em Campinas 2025 · 5 no Top 10 Geral
-              </p>
-
             </div>
 
             {/* ─ Coluna LOGO grande ─ */}

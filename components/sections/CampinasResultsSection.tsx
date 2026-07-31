@@ -289,9 +289,9 @@ export default function CampinasResultsSection() {
                 fontStyle: "italic",
               }}
             >
-              Campinas também cobrou legislação municipal em concurso de Arquitetura —{" "}
+              Campinas também cobrou legislação municipal.{" "}
               <strong style={{ color: "#3d1a8f", fontStyle: "normal" }}>
-                mesma metodologia, agora adaptada para Santos (Banca IBAM).
+                Mesma metodologia, agora adaptada para Santos (Banca IBAM).
               </strong>
             </p>
 

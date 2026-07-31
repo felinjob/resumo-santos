@@ -256,8 +256,8 @@ export default function CheckoutSection() {
               <ul style={{ marginBottom: "1.25rem" }} className="space-y-2">
                 {[
                   "Tudo do Curso de Legislação Municipal incluído",
-                  "Plano de Estudos personalizado ArqConcurso (75 dias)",
-                  "Cronograma estratégico para a prova",
+                  "Plano de Estudos diário ArqConcurso (75 dias — Arq e Eng Civil)",
+                  "Cronograma estratégico passo a passo até a prova",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#22c55e" }} />
@@ -287,7 +287,7 @@ export default function CheckoutSection() {
                   <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
                 </div>
                 <p style={{ fontSize: "0.88rem", color: "#374151", marginTop: "4px", marginBottom: "8px", fontWeight: 700 }}>
-                  ou <span style={{ color: "#16a34a", fontWeight: 800 }}>12x de R$ 26,40</span> no cartão
+                  ou <span style={{ color: "#16a34a", fontWeight: 800 }}>12x de R$ 26,39</span> no cartão
                 </p>
 
                 {/* Destaque do Cupom COMBO20 (Copiável) */}
@@ -372,26 +372,12 @@ export default function CheckoutSection() {
               marginBottom: "4px",
             }}
           >
-            ⏳ Preço de lançamento válido por tempo limitado
+            Preço de lançamento válido por tempo limitado
           </p>
           <p style={{ fontSize: "0.75rem", color: "#6b7280", fontStyle: "italic" }}>
             Os cupons LANCAMENTO15 e COMBO20 serão desativados após o período de lançamento
           </p>
         </div>
-
-        {/* ── Mini prova social perto da decisão ── */}
-        <p
-          className={`text-center reveal ${visible ? "is-visible" : ""}`}
-          style={{
-            fontSize: "0.78rem",
-            color: "#5226b3",
-            fontWeight: 600,
-            marginBottom: "2rem",
-            fontFamily: "var(--font-plus-jakarta)",
-          }}
-        >
-          ✦ Mesma metodologia dos 12 alunos classificados no concurso de Campinas 2025
-        </p>
 
         {/* ══════════════════════════════════════════
             GARANTIA DE REEMBOLSO — destaque visual

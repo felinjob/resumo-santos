@@ -55,23 +55,15 @@ export default function WhyChooseSection() {
           {benefits.map((b, i) => (
             <div
               key={b.title}
-              className={`card-white p-7 reveal reveal-d${i + 1} ${visible ? "is-visible" : ""}`}
+              className={`card-white p-5 reveal reveal-d${i + 1} ${visible ? "is-visible" : ""}`}
             >
               {/* Ícone */}
               <div
-                className="flex items-center justify-center w-14 h-14 rounded-2xl mb-5"
+                className="flex items-center justify-center w-12 h-12 rounded-2xl mb-4"
                 style={{ backgroundColor: iconBgs[i], color: iconColors[i] }}
               >
-                {iconMap[b.iconName] || <UserCheck size={28} />}
+                {iconMap[b.iconName] || <UserCheck size={24} />}
               </div>
-
-              {/* Número decorativo */}
-              <span
-                className="text-xs font-bold mb-2 block"
-                style={{ color: iconColors[i], letterSpacing: "0.1em" }}
-              >
-                0{i + 1}
-              </span>
 
               <h3
                 className="mb-3"

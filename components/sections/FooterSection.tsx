@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FORM_URL, EDITAL_URL, SUPPORT_EMAIL } from "@/lib/data";
 import { ExternalLink, Mail } from "lucide-react";
 
@@ -19,12 +20,13 @@ export default function FooterSection() {
           {/* Marca */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-xs"
-                style={{ background: "linear-gradient(135deg,#8b5cf6,#5226b3)" }}
-              >
-                RS
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Logo Resumos Santos 2026"
+                width={32}
+                height={32}
+                className="w-8 h-8 rounded-lg object-contain"
+              />
               <span
                 className="text-sm font-bold text-white"
                 style={{ fontFamily: "var(--font-plus-jakarta)" }}
