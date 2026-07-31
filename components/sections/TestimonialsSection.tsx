@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { testimonials } from "@/lib/data";
-import { ChevronDown, X, ZoomIn } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { useReveal } from "@/lib/hooks";
 
 export default function TestimonialsSection() {
@@ -11,8 +11,12 @@ export default function TestimonialsSection() {
   const [expanded, setExpanded] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const visibleItems = expanded ? testimonials : testimonials.slice(0, 3);
-  const hasMore = testimonials.length > 3;
+  /* ── Touch gesture states for mobile swipe ── */
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const visibleItems = expanded ? testimonials.slice(1) : testimonials.slice(1, 4);
+  const hasMore = testimonials.length > 4;
 
   /* ── Lightbox keyboard handler ── */
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
@@ -35,6 +39,32 @@ export default function TestimonialsSection() {
       window.removeEventListener("keydown", handleKey);
     };
   }, [lightboxIndex, closeLightbox]);
+
+  /* ── Touch swipe navigation logic ── */
+  const minSwipeDistance = 40;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && lightboxIndex !== null && lightboxIndex < testimonials.length - 1) {
+      setLightboxIndex(lightboxIndex + 1);
+    }
+    if (isRightSwipe && lightboxIndex !== null && lightboxIndex > 0) {
+      setLightboxIndex(lightboxIndex - 1);
+    }
+  };
 
   return (
     <>
@@ -83,25 +113,25 @@ export default function TestimonialsSection() {
             {visibleItems.map((t, i) => (
               <div
                 key={i}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 reveal reveal-d${Math.min(
+                className={`rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 reveal reveal-d${Math.min(
                   i + 1,
                   8
                 )} ${visible ? "is-visible" : ""}`}
                 style={{
                   boxShadow: "0 4px 14px rgba(0,0,0,0.06)",
                   border: "1px solid rgba(229, 231, 235, 0.8)",
-                  background: "#111827",
+                  background: "#ffffff",
                 }}
-                onClick={() => setLightboxIndex(i)}
+                onClick={() => setLightboxIndex(testimonials.findIndex((item) => item.image === t.image))}
                 role="button"
                 tabIndex={0}
                 aria-label={`Ver print do depoimento: ${t.headline}`}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") setLightboxIndex(i);
+                  if (e.key === "Enter") setLightboxIndex(testimonials.findIndex((item) => item.image === t.image));
                 }}
               >
                 {/* Imagem do print direto */}
-                <div style={{ position: "relative", width: "100%", aspectRatio: "16/10" }}>
+                <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", background: "#111827" }}>
                   <Image
                     src={t.image}
                     alt={t.headline}
@@ -120,6 +150,33 @@ export default function TestimonialsSection() {
                       <ZoomIn size={22} className="text-white" />
                     </div>
                   </div>
+                </div>
+
+                {/* Legenda com headline */}
+                <div style={{ padding: "0.65rem 0.85rem" }}>
+                  <p
+                    style={{
+                      fontSize: "0.78rem",
+                      color: "#374151",
+                      fontWeight: 600,
+                      lineHeight: 1.4,
+                      fontFamily: "var(--font-plus-jakarta)",
+                    }}
+                  >
+                    &ldquo;{t.headline}&rdquo;
+                  </p>
+                  {t.authorName && (
+                    <p
+                      style={{
+                        fontSize: "0.7rem",
+                        color: "#5226b3",
+                        fontWeight: 700,
+                        marginTop: "3px",
+                      }}
+                    >
+                      — {t.authorName}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -148,7 +205,7 @@ export default function TestimonialsSection() {
       </section>
 
       {/* ══════════════════════════════════════════
-          LIGHTBOX MODAL (TELA CHEIA)
+          LIGHTBOX MODAL COM NAVEGAÇÃO EM GALERIA (TELA CHEIA)
           ══════════════════════════════════════════ */}
       {lightboxIndex !== null && (
         <div
@@ -159,17 +216,46 @@ export default function TestimonialsSection() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "rgba(0,0,0,0.85)",
+            background: "rgba(0,0,0,0.88)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
             animation: "fadeIn 0.2s ease",
             padding: "1rem",
+            userSelect: "none",
           }}
           onClick={closeLightbox}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
           role="dialog"
           aria-modal="true"
-          aria-label="Visualização do depoimento em tela cheia"
+          aria-label="Visualização de depoimento na galeria"
         >
+          {/* INDICADOR DE POSIÇÃO (Topo Centro) */}
+          <div
+            style={{
+              position: "absolute",
+              top: "1.25rem",
+              left: "50%",
+              transform: "translateX(-50%)",
+              background: "rgba(0, 0, 0, 0.4)",
+              backdropFilter: "blur(6px)",
+              WebkitBackdropFilter: "blur(6px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              color: "#ffffff",
+              padding: "6px 16px",
+              borderRadius: "999px",
+              fontSize: "0.82rem",
+              fontWeight: 600,
+              letterSpacing: "0.03em",
+              zIndex: 10,
+              pointerEvents: "none",
+              fontFamily: "var(--font-plus-jakarta)",
+            }}
+          >
+            Print {lightboxIndex + 1} de {testimonials.length}
+          </div>
+
           {/* Botão fechar (X) */}
           <button
             onClick={closeLightbox}
@@ -187,7 +273,7 @@ export default function TestimonialsSection() {
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              zIndex: 10,
+              zIndex: 20,
               transition: "background 0.2s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.35)")}
@@ -195,6 +281,72 @@ export default function TestimonialsSection() {
           >
             <X size={22} style={{ color: "#ffffff" }} />
           </button>
+
+          {/* BOTÃO LATERAIS DE NAVEGAÇÃO: ANTERIOR (Oculto no 1º print) */}
+          {lightboxIndex > 0 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex(lightboxIndex - 1);
+              }}
+              aria-label="Imagem anterior"
+              style={{
+                position: "absolute",
+                left: "1rem",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                background: "rgba(0, 0, 0, 0.4)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
+                color: "#ffffff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                zIndex: 20,
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0, 0, 0, 0.7)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0, 0, 0, 0.4)")}
+            >
+              <ChevronLeft size={28} />
+            </button>
+          )}
+
+          {/* BOTÃO LATERAIS DE NAVEGAÇÃO: PRÓXIMA (Oculto no último print) */}
+          {lightboxIndex < testimonials.length - 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex(lightboxIndex + 1);
+              }}
+              aria-label="Próxima imagem"
+              style={{
+                position: "absolute",
+                right: "1rem",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                background: "rgba(0, 0, 0, 0.4)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
+                color: "#ffffff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                zIndex: 20,
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0, 0, 0, 0.7)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0, 0, 0, 0.4)")}
+            >
+              <ChevronRight size={28} />
+            </button>
+          )}
 
           {/* Imagem do print em alta resolução */}
           <div
@@ -209,6 +361,7 @@ export default function TestimonialsSection() {
             }}
           >
             <Image
+              key={lightboxIndex}
               src={testimonials[lightboxIndex].image}
               alt={testimonials[lightboxIndex].headline}
               width={800}

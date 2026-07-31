@@ -45,7 +45,7 @@ export default function WhyChooseSection() {
             className="mx-auto"
             style={{ color: "#6b7280", maxWidth: "560px", fontSize: "0.95rem", lineHeight: 1.6 }}
           >
-            Metodologia testada e aprovada por quem conquistou a vaga em concursos de altíssima concorrência.
+            A mesma metodologia que classificou 12 alunos em Campinas, agora adaptada para Santos (Banca IBAM).
           </p>
           <div className="divider-brand mt-5" />
         </div>

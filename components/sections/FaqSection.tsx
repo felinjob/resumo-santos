@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { faqItems, SUPPORT_EMAIL } from "@/lib/data";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { faqItems, SUPPORT_EMAIL, CHECKOUT_CURSO_URL } from "@/lib/data";
+import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react";
 import { useReveal } from "@/lib/hooks";
 
 export default function FaqSection() {
@@ -145,6 +145,26 @@ export default function FaqSection() {
             >
               {SUPPORT_EMAIL}
             </a>
+          </p>
+
+          {/* CTA final após FAQ */}
+          <a
+            href={CHECKOUT_CURSO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-cta focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+            style={{
+              marginTop: "1.5rem",
+              fontSize: "0.92rem",
+              padding: "0.85rem 1.75rem",
+            }}
+            aria-label="Quero ser aprovado — Garantir acesso"
+          >
+            Quero ser aprovado!
+            <ArrowRight size={18} />
+          </a>
+          <p style={{ fontSize: "0.7rem", color: "#9ca3af", marginTop: "8px", fontWeight: 600 }}>
+            Acesso imediato · 12x R$ 20,57 · Garantia de 7 dias
           </p>
         </div>
       </div>

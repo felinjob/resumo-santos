@@ -135,8 +135,8 @@ export default function CheckoutSection() {
                   </span>
                   <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
                 </div>
-                <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "2px", marginBottom: "8px" }}>
-                  ou parcelado no cartão
+                <p style={{ fontSize: "0.88rem", color: "#374151", marginTop: "4px", marginBottom: "8px", fontWeight: 700 }}>
+                  ou <span style={{ color: "#16a34a", fontWeight: 800 }}>12x de R$ 20,57</span> no cartão
                 </p>
 
                 {/* Destaque do Cupom LANCAMENTO15 (Copiável) */}
@@ -200,6 +200,9 @@ export default function CheckoutSection() {
                 Quero ser aprovado!
                 <ArrowRight size={18} />
               </a>
+              <p style={{ fontSize: "0.7rem", color: "#9ca3af", textAlign: "center", marginTop: "8px", fontWeight: 600 }}>
+                Acesso imediato · Garantia de 7 dias
+              </p>
             </div>
           </div>
 
@@ -255,7 +258,6 @@ export default function CheckoutSection() {
                   "Tudo do Curso de Legislação Municipal incluído",
                   "Plano de Estudos personalizado ArqConcurso (75 dias)",
                   "Cronograma estratégico para a prova",
-                  "Material complementar exclusivo",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#22c55e" }} />
@@ -284,13 +286,13 @@ export default function CheckoutSection() {
                   </span>
                   <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
                 </div>
-                <p style={{ fontSize: "0.78rem", color: "#6b7280", marginTop: "2px", marginBottom: "8px" }}>
-                  ou parcelado no cartão
+                <p style={{ fontSize: "0.88rem", color: "#374151", marginTop: "4px", marginBottom: "8px", fontWeight: 700 }}>
+                  ou <span style={{ color: "#16a34a", fontWeight: 800 }}>12x de R$ 26,40</span> no cartão
                 </p>
 
                 {/* Destaque do Cupom COMBO20 (Copiável) */}
                 <div
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1 cursor-pointer select-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-3 cursor-pointer select-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
                   style={{
                     background: copiedCoupon === "COMBO20" ? "#dcfce7" : "#fefce8",
                     border: copiedCoupon === "COMBO20" ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
@@ -349,21 +351,46 @@ export default function CheckoutSection() {
                 Quero o Combo!
                 <ArrowRight size={18} />
               </a>
+              <p style={{ fontSize: "0.7rem", color: "#9ca3af", textAlign: "center", marginTop: "8px", fontWeight: 600 }}>
+                Acesso imediato · Garantia de 7 dias
+              </p>
             </div>
           </div>
         </div>
 
-        {/* ── Urgência discreta ── */}
+        {/* ── Urgência com prazo concreto ── */}
+        <div
+          className={`text-center reveal ${visible ? "is-visible" : ""}`}
+          style={{ marginBottom: "2rem" }}
+        >
+          <p
+            style={{
+              fontSize: "0.82rem",
+              color: "#dc2626",
+              fontWeight: 700,
+              fontFamily: "var(--font-plus-jakarta)",
+              marginBottom: "4px",
+            }}
+          >
+            ⏳ Preço de lançamento válido por tempo limitado
+          </p>
+          <p style={{ fontSize: "0.75rem", color: "#6b7280", fontStyle: "italic" }}>
+            Os cupons LANCAMENTO15 e COMBO20 serão desativados após o período de lançamento
+          </p>
+        </div>
+
+        {/* ── Mini prova social perto da decisão ── */}
         <p
           className={`text-center reveal ${visible ? "is-visible" : ""}`}
           style={{
             fontSize: "0.78rem",
-            color: "#6b7280",
-            fontStyle: "italic",
+            color: "#5226b3",
+            fontWeight: 600,
             marginBottom: "2rem",
+            fontFamily: "var(--font-plus-jakarta)",
           }}
         >
-          Condição válida para o período de lançamento
+          ✦ Mesma metodologia dos 12 alunos classificados no concurso de Campinas 2025
         </p>
 
         {/* ══════════════════════════════════════════

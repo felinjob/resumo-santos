@@ -146,18 +146,18 @@ export const authors: Author[] = [
 export const benefits: Benefit[] = [
   {
     iconName: "UserCheck",
-    title: "Feito por quem entende",
-    description: "Elaborado por profissionais aprovados e nomeados no serviço público.",
+    title: "Testado e aprovado em Campinas 2025",
+    description: "Mesma metodologia que colocou 5 alunos no Top 10 Geral e 4 nomeados na Prefeitura de Campinas.",
   },
   {
     iconName: "Clock",
-    title: "Otimize seus estudos",
-    description: "Estude diretamente o que é mais relevante, economizando tempo precioso de leitura da Lei Seca.",
+    title: "Tabelas, fluxogramas e esquemas visuais",
+    description: "Sem enrolação. Informação visual que gruda na memória e funciona na hora da prova. Direto ao ponto.",
   },
   {
     iconName: "Target",
-    title: "Foco 100% na banca IBAM",
-    description: "Conteúdo esquematizado e questões direcionadas ao perfil e histórico da banca organizadora.",
+    title: "Questões IBAM reais + inéditas em vídeo",
+    description: "Videoaulas que simulam o estilo exato da banca para você não ser surpreendido no dia da prova.",
   },
 ];
 
@@ -234,14 +234,29 @@ export const faqItems: FAQItem[] = [
     answer:
       "O material conta com garantia de atualização contínua sem nenhum custo extra até a data da prova.",
   },
+  {
+    question: "Para quais cargos esse material é indicado?",
+    answer:
+      "Os resumos foram desenvolvidos para os cargos de Arquiteto e Engenheiro Civil previstos no Edital nº 74/2026 (SEPLA-RH Santos). A legislação cobrada é a mesma para ambos os cargos.",
+  },
+  {
+    question: "Posso usar junto com outro curso preparatório?",
+    answer:
+      "Sim! Nosso material foca exclusivamente na legislação municipal — a parte que outros cursos raramente cobrem com profundidade. É um complemento ideal para qualquer preparação.",
+  },
 ];
 
 export const testimonials: Testimonial[] = [
   {
-    authorName: "Vanessa Rodrigues",
+    authorName: "Thiago Darlan Silva Fonseca",
+    headline: "Thiago Darlan Silva Fonseca — 5º Lugar Geral na Prefeitura de Campinas",
+    image: "/depoimentos/thiago.jpeg",
+  },
+  {
+    authorName: "Vanessa de Moraes",
     headline: "O curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na Prefeitura de Campinas!",
     text: "Sou muito grata ao Valdinei e a Raquel pelo material completo que elaboraram para o concurso da Prefeitura de Campinas, que combinou vídeoaulas com exercícios no modelo da banca, preenchendo uma lacuna que havia em outros cursos para o concurso, a parte de legislação municipal! Com certeza o curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na prefeitura de Campinas.",
-    image: "/depoimentos/vanessa.jpeg",
+    image: "/depoimentos/vanessa_novo.jpeg",
   },
   {
     headline: "O material de vocês foi fundamental pra eu conseguir a vaga!",
