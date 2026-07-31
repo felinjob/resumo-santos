@@ -279,7 +279,7 @@ export default function CampinasResultsSection() {
             </p>
 
             {/* Frase-ponte Campinas → Santos */}
-            <p
+            <div
               style={{
                 fontSize: "0.84rem",
                 color: "#6b7280",
@@ -289,11 +289,13 @@ export default function CampinasResultsSection() {
                 fontStyle: "italic",
               }}
             >
-              Campinas também cobrou legislação municipal.{" "}
-              <strong style={{ color: "#3d1a8f", fontStyle: "normal" }}>
-                Mesma metodologia, agora adaptada para Santos (Banca IBAM).
-              </strong>
-            </p>
+              <p>Campinas também cobrou legislação municipal.</p>
+              <p style={{ marginTop: "4px" }}>
+                <strong style={{ color: "#3d1a8f", fontStyle: "normal" }}>
+                  Mesma metodologia, agora adaptada para Santos (Banca IBAM).
+                </strong>
+              </p>
+            </div>
 
             {/* CTA intermediário */}
             <a
