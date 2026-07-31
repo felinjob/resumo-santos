@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { X, Download, ShieldCheck, ArrowRight } from "lucide-react";
-import { EDITAL_URL, CHECKOUT_CURSO_URL } from "@/lib/data";
+import { AMOSTRA_URL, CHECKOUT_CURSO_URL } from "@/lib/data";
 
 export default function ExitIntentModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,23 +62,24 @@ export default function ExitIntentModal() {
           className="text-xl sm:text-2xl font-extrabold text-gray-900 mb-2 leading-tight"
           style={{ fontFamily: "var(--font-plus-jakarta)" }}
         >
-          Espere! Baixe a amostra grátis antes de sair.
+          Espere! Baixe a amostra antes de sair.
         </h3>
 
         <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-          Comprove a qualidade do nosso material. Baixe agora um trecho de 10 páginas com resumos, tabelas de prazos e esquemas visuais da legislação de Santos.
+          Comprove a qualidade do nosso material. Baixe agora um trecho com resumos, tabelas de prazos e esquemas visuais da legislação de Santos.
         </p>
 
         <div className="flex flex-col gap-3">
           <a
-            href={EDITAL_URL}
+            href={AMOSTRA_URL}
+            download="Amostra-Resumo-Santos.pdf"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
             className="w-full py-3.5 px-6 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all hover:scale-[1.02]"
           >
             <Download size={18} />
-            Baixar amostra grátis (PDF 10 páginas)
+            Baixar amostra
           </a>
 
           <a

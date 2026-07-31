@@ -5,6 +5,7 @@ export const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSd-qQi14c5zF6aKfdsjREhU3i19z7KZq_tcLNztzQccHRFi6Q/viewform?usp=preview";
 
 export const EDITAL_URL = "https://www.ibamsp-concursos.org.br/informacoes/179/";
+export const AMOSTRA_URL = "/Amostra-Resumo-Santos.pdf";
 
 export const SUPPORT_EMAIL = "raquelmoraispg@gmail.com";
 

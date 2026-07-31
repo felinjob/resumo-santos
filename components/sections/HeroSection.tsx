@@ -176,6 +176,7 @@ export default function HeroSection() {
                 <a
                   id="cta-hero-sample"
                   href="/Amostra-Resumo-Santos.pdf"
+                  download="Amostra-Resumo-Santos.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300"
