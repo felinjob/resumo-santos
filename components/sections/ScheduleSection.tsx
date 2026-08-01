@@ -1,6 +1,6 @@
 "use client";
 
-import { scheduleItems } from "@/lib/data";
+import { scheduleItems, checkIsReleased } from "@/lib/data";
 import {
   CheckCircle2,
   Clock,
@@ -105,7 +105,7 @@ function StatusBadge({ status, date }: { status: "released" | "upcoming"; date: 
 
 export default function ScheduleSection() {
   const { ref, visible } = useReveal(0.06);
-  const releasedPdfs = scheduleItems.filter((i) => i.pdfStatus === "released").length;
+  const releasedPdfs = scheduleItems.filter((i) => checkIsReleased(i.pdfDate, i.pdfStatus)).length;
   const total = scheduleItems.length;
   const pct = Math.round((releasedPdfs / total) * 100);
 
@@ -206,7 +206,11 @@ export default function ScheduleSection() {
           }}
         >
           {scheduleItems.map((item, i) => {
-            const isPdfReleased = item.pdfStatus === "released";
+            const isPdfReleased = checkIsReleased(item.pdfDate, item.pdfStatus);
+            const isVideoReleased = checkIsReleased(item.videoDate, item.videoStatus);
+
+            const effectivePdfStatus = isPdfReleased ? "released" : "upcoming";
+            const effectiveVideoStatus = isVideoReleased ? "released" : "upcoming";
 
             return (
               <div
@@ -248,11 +252,11 @@ export default function ScheduleSection() {
                     >
                       <div className="flex items-center gap-1.5">
                         <FileText size={12} style={{ color: "#5226b3" }} />
-                        <StatusBadge status={item.pdfStatus} date={item.pdfDate} />
+                        <StatusBadge status={effectivePdfStatus} date={item.pdfDate} />
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Video size={12} style={{ color: "#5226b3" }} />
-                        <StatusBadge status={item.videoStatus} date={item.videoDate} />
+                        <StatusBadge status={effectiveVideoStatus} date={item.videoDate} />
                       </div>
                     </div>
 

@@ -50,7 +50,7 @@ export const scheduleItems: ScheduleItem[] = [
     description: "Licenciamento Ambiental Municipal",
     pdfDate: "01/08",
     videoDate: "25/09",
-    pdfStatus: "upcoming",
+    pdfStatus: "released",
     videoStatus: "upcoming",
   },
   {
@@ -287,3 +287,33 @@ export const testimonials: Testimonial[] = [
     image: "/depoimentos/depoimento-07.jpeg",
   },
 ];
+
+/**
+ * Verifica se um recurso (PDF ou Vídeo) já deve estar liberado com base na data.
+ * Formato esperado de dateStr: "DD/MM" (ex: "01/08", "12/08").
+ * Se o status manual for "released", retorna true diretamente.
+ * Caso contrário, compara a data atual com a data estipulada de liberação (ano 2026).
+ */
+export function checkIsReleased(
+  dateStr: string,
+  manualStatus?: "released" | "upcoming",
+  year = 2026
+): boolean {
+  if (manualStatus === "released") return true;
+  if (!dateStr) return false;
+
+  const parts = dateStr.split("/");
+  if (parts.length !== 2) return false;
+
+  const day = parseInt(parts[0], 10);
+  const month = parseInt(parts[1], 10);
+
+  if (isNaN(day) || isNaN(month)) return false;
+
+  // Data de liberação a partir das 00:00:00 do dia estipulado
+  const releaseDate = new Date(year, month - 1, day, 0, 0, 0);
+  const now = new Date();
+
+  return now >= releaseDate;
+}
+
