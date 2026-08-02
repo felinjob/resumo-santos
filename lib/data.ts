@@ -29,6 +29,7 @@ export interface Author {
   image: string;
   instagram?: string;
   linkedin?: string;
+  lattes?: string;
 }
 
 export interface Benefit {
@@ -146,6 +147,7 @@ export const authors: Author[] = [
     initials: "VC",
     image: "/autores/valdinei.webp",
     instagram: "https://www.instagram.com/_castrov",
+    lattes: "https://lattes.cnpq.br/3767295647144166",
   },
 ];
 

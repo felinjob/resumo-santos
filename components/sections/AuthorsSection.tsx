@@ -42,6 +42,24 @@ function LinkedinIcon({ size = 13 }: { size?: number }) {
   );
 }
 
+function LattesIcon({ size = 13 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+    </svg>
+  );
+}
+
 export default function AuthorsSection() {
   const { ref, visible } = useReveal(0.12);
 
@@ -122,8 +140,8 @@ export default function AuthorsSection() {
                   <p style={{ fontSize: "0.78rem", color: "#9ca3af", marginTop: "4px" }}>
                     {a.organization}
                   </p>
-                  {(a.instagram || a.linkedin) && (
-                    <div className="flex items-center justify-center sm:justify-start gap-2 mt-3">
+                  {(a.instagram || a.linkedin || a.lattes) && (
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mt-3">
                       {a.instagram && (
                         <a
                           href={a.instagram}
@@ -146,6 +164,18 @@ export default function AuthorsSection() {
                         >
                           <LinkedinIcon size={13} />
                           <span>LinkedIn</span>
+                        </a>
+                      )}
+                      {a.lattes && (
+                        <a
+                          href={a.lattes}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 transition-colors border border-emerald-200/80 shadow-xs"
+                          aria-label={`Currículo Lattes CNPq de ${a.name}`}
+                        >
+                          <LattesIcon size={13} />
+                          <span>Lattes CNPq</span>
                         </a>
                       )}
                     </div>
