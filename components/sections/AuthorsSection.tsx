@@ -4,6 +4,44 @@ import Image from "next/image";
 import { authors } from "@/lib/data";
 import { useReveal } from "@/lib/hooks";
 
+function InstagramIcon({ size = 13 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
+function LinkedinIcon({ size = 13 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
 export default function AuthorsSection() {
   const { ref, visible } = useReveal(0.12);
 
@@ -84,6 +122,34 @@ export default function AuthorsSection() {
                   <p style={{ fontSize: "0.78rem", color: "#9ca3af", marginTop: "4px" }}>
                     {a.organization}
                   </p>
+                  {(a.instagram || a.linkedin) && (
+                    <div className="flex items-center justify-center sm:justify-start gap-2 mt-3">
+                      {a.instagram && (
+                        <a
+                          href={a.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-pink-700 bg-pink-50 hover:bg-pink-100 transition-colors border border-pink-200/80"
+                          aria-label={`Instagram de ${a.name}`}
+                        >
+                          <InstagramIcon size={13} />
+                          <span>Instagram</span>
+                        </a>
+                      )}
+                      {a.linkedin && (
+                        <a
+                          href={a.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors border border-blue-200/80"
+                          aria-label={`LinkedIn de ${a.name}`}
+                        >
+                          <LinkedinIcon size={13} />
+                          <span>LinkedIn</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 

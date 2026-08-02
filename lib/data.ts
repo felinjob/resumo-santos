@@ -27,6 +27,8 @@ export interface Author {
   bio: string;
   initials: string;
   image: string;
+  instagram?: string;
+  linkedin?: string;
 }
 
 export interface Benefit {
@@ -133,6 +135,8 @@ export const authors: Author[] = [
     bio: "Arquiteta e Urbanista pela Universidade Federal do Rio de Janeiro (UFRJ) e Especialista em Políticas Públicas de Infraestrutura pela Escola Nacional de Administração Pública (ENAP), possui mais de 8 anos de experiência em concursos de arquitetura, incluindo o 1º lugar na banca IBAM (Pref. de Vassouras/RJ). Atuou na Prefeitura de Campinas junto à Secretaria Municipal de Finanças, e atualmente exerce o cargo de Analista Judiciária na Seção de Fiscalização de Obras e Serviços de Engenharia do Tribunal Regional Federal da 3ª Região (SP).",
     initials: "RM",
     image: "/autores/raquel.webp",
+    instagram: "https://www.instagram.com/raquelmoraispg",
+    linkedin: "https://www.linkedin.com/in/raquelmorais1",
   },
   {
     name: "Valdinei Castro",
@@ -141,6 +145,7 @@ export const authors: Author[] = [
     bio: "Arquiteto e Urbanista pela Universidade Estadual de Maringá (UEM), Especialista em Mobilidade e Cidade Contemporânea pela Escola da Cidade (AEC/AU) e Mestre em Arquitetura e Urbanismo pela Universidade Federal de Santa Catarina (UFSC). Atua como Arquiteto na Prefeitura de Campinas junto à Secretaria Municipal de Habitação, na elaboração de projetos urbanísticos de Regularização Fundiária de Interesse Social.",
     initials: "VC",
     image: "/autores/valdinei.webp",
+    instagram: "https://www.instagram.com/_castrov",
   },
 ];
 
