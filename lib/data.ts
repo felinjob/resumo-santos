@@ -261,13 +261,11 @@ export const faqItems: FAQItem[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    authorName: "Vanessa de Moraes",
     headline: "O curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na Prefeitura de Campinas!",
     text: "Sou muito grata ao Valdinei e a Raquel pelo material completo que elaboraram para o concurso da Prefeitura de Campinas, que combinou vídeoaulas com exercícios no modelo da banca, preenchendo uma lacuna que havia em outros cursos para o concurso, a parte de legislação municipal! Com certeza o curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na prefeitura de Campinas.",
     image: "/depoimentos/vanessa_novo.jpeg",
   },
   {
-    authorName: "Lucas Lessa",
     headline: "Material de excelente qualidade e essencial para a aprovação!",
     image: "/depoimentos/lucas_lessa.jpeg",
   },

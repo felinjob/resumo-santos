@@ -165,18 +165,6 @@ export default function TestimonialsSection() {
                   >
                     &ldquo;{t.headline}&rdquo;
                   </p>
-                  {t.authorName && (
-                    <p
-                      style={{
-                        fontSize: "0.7rem",
-                        color: "#5226b3",
-                        fontWeight: 700,
-                        marginTop: "3px",
-                      }}
-                    >
-                      — {t.authorName}
-                    </p>
-                  )}
                 </div>
               </div>
             ))}
