@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CHECKOUT_CURSO_URL, EDITAL_URL } from "@/lib/data";
+import { CHECKOUT_CURSO_URL, EDITAL_URL, AMOSTRA_URL } from "@/lib/data";
 import { ArrowRight, Download } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -175,8 +175,7 @@ export default function HeroSection() {
                 </a>
                 <a
                   id="cta-hero-sample"
-                  href="/Amostra-Resumo-Santos.pdf"
-                  download="Amostra-Resumo-Santos.pdf"
+                  href={AMOSTRA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300"

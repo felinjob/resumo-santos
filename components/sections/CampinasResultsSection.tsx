@@ -167,7 +167,7 @@ export default function CampinasResultsSection() {
                     lineHeight: 1.2,
                   }}
                 >
-                  4 Alunos Nomeados Até Agora
+                  4 alunos nomeados até agora
                 </p>
                 <p style={{ fontSize: "0.8rem", color: "#6d35cc", fontWeight: 600, marginTop: "3px", lineHeight: 1.4 }}>
                   4 convocados oficialmente no Diário Oficial

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { faqItems, SUPPORT_EMAIL, CHECKOUT_CURSO_URL } from "@/lib/data";
-import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react";
+import { faqItems, SUPPORT_EMAIL, CHECKOUT_CURSO_URL, AMOSTRA_URL } from "@/lib/data";
+import { ChevronDown, HelpCircle, ArrowRight, Download } from "lucide-react";
 import { useReveal } from "@/lib/hooks";
 
 export default function FaqSection() {
@@ -126,6 +126,19 @@ export default function FaqSection() {
                     }}
                   >
                     {item.answer}
+                    {item.question.toLowerCase().includes("amostra") && (
+                      <div className="mt-3">
+                        <a
+                          href={AMOSTRA_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 font-bold text-purple-700 hover:text-purple-900 text-sm underline"
+                        >
+                          <Download size={14} />
+                          Abrir Amostra em PDF em nova aba
+                        </a>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

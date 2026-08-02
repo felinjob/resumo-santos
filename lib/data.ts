@@ -5,7 +5,7 @@ export const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSd-qQi14c5zF6aKfdsjREhU3i19z7KZq_tcLNztzQccHRFi6Q/viewform?usp=preview";
 
 export const EDITAL_URL = "https://www.ibamsp-concursos.org.br/informacoes/179/";
-export const AMOSTRA_URL = "/Amostra-Resumo-Santos.pdf";
+export const AMOSTRA_URL = "/Nova-Amostra-Resumo-Santos.pdf";
 
 export const SUPPORT_EMAIL = "raquelmoraispg@gmail.com";
 
@@ -157,8 +157,8 @@ export const benefits: Benefit[] = [
   },
   {
     iconName: "Target",
-    title: "Questões IBAM reais + inéditas em vídeo",
-    description: "Videoaulas que simulam o estilo exato da banca para você não ser surpreendido no dia da prova.",
+    title: "Questões inéditas comentadas",
+    description: "Vídeoaulas comentando questões inéditas feitas no estilo da banca IBAM",
   },
 ];
 
@@ -200,6 +200,11 @@ export interface Testimonial {
 }
 
 export const faqItems: FAQItem[] = [
+  {
+    question: "Posso ver uma amostra gratuita do material em PDF?",
+    answer:
+      "Sim! Você pode visualizar e baixar uma amostra gratuita em PDF da nossa didática e legislação esquematizada para comprovar a qualidade do conteúdo antes de adquirir.",
+  },
   {
     question: "Como funciona a entrega das vídeoaulas e resumos?",
     answer:
@@ -249,14 +254,15 @@ export const faqItems: FAQItem[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    authorName: "Thiago Darlan Silva Fonseca",
-    headline: "Thiago Darlan Silva Fonseca — 5º Lugar Geral na Prefeitura de Campinas",
-    image: "/depoimentos/thiago.jpeg",
-  },
-  {
+    authorName: "Vanessa de Moraes",
     headline: "O curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na Prefeitura de Campinas!",
     text: "Sou muito grata ao Valdinei e a Raquel pelo material completo que elaboraram para o concurso da Prefeitura de Campinas, que combinou vídeoaulas com exercícios no modelo da banca, preenchendo uma lacuna que havia em outros cursos para o concurso, a parte de legislação municipal! Com certeza o curso me rendeu pontos na prova e me ajudou a ter uma boa classificação na prefeitura de Campinas.",
     image: "/depoimentos/vanessa_novo.jpeg",
+  },
+  {
+    authorName: "Lucas Lessa",
+    headline: "Material de excelente qualidade e essencial para a aprovação!",
+    image: "/depoimentos/lucas_lessa.jpeg",
   },
   {
     headline: "O material de vocês foi fundamental pra eu conseguir a vaga!",

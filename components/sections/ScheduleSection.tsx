@@ -1,6 +1,6 @@
 "use client";
 
-import { scheduleItems, checkIsReleased } from "@/lib/data";
+import { scheduleItems, checkIsReleased, AMOSTRA_URL } from "@/lib/data";
 import {
   CheckCircle2,
   Clock,
@@ -263,7 +263,7 @@ export default function ScheduleSection() {
                     {/* Botão amostra — para o primeiro item do cronograma */}
                     {i === 0 && (
                       <a
-                        href="/Amostra-Resumo-Santos.pdf"
+                        href={AMOSTRA_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-outline-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"

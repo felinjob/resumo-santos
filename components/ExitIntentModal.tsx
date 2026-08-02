@@ -72,7 +72,6 @@ export default function ExitIntentModal() {
         <div className="flex flex-col gap-3">
           <a
             href={AMOSTRA_URL}
-            download="Amostra-Resumo-Santos.pdf"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}

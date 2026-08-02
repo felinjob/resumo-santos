@@ -15,8 +15,8 @@ export default function TestimonialsSection() {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const visibleItems = expanded ? testimonials.slice(1) : testimonials.slice(1, 4);
-  const hasMore = testimonials.length > 4;
+  const visibleItems = expanded ? testimonials : testimonials.slice(0, 3);
+  const hasMore = testimonials.length > 3;
 
   /* ── Lightbox keyboard handler ── */
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
