@@ -1,6 +1,24 @@
 export const CHECKOUT_CURSO_URL = "https://chk.eduzz.com/E9OG65XGWB";
 export const CHECKOUT_COMBO_URL = "https://chk.eduzz.com/y5ufxzc7";
 
+export const CURSO_PRICING = {
+  originalPrice: "R$ 234,00",
+  cashPrice: "R$ 210,60",
+  installmentPrice: "R$ 24,20",
+  installmentText: "12x de R$ 24,20",
+  coupon: "SANTOS10",
+  discountPercent: "10% OFF",
+};
+
+export const COMBO_PRICING = {
+  originalPrice: "R$ 319,00",
+  cashPrice: "R$ 255,20",
+  installmentPrice: "R$ 26,39",
+  installmentText: "12x de R$ 26,39",
+  coupon: "COMBO20",
+  discountPercent: "20% OFF",
+};
+
 export const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSd-qQi14c5zF6aKfdsjREhU3i19z7KZq_tcLNztzQccHRFi6Q/viewform?usp=preview";
 

@@ -77,8 +77,8 @@ export default function StickyMobileCta() {
             </span>
           </div>
           <p className="text-xs font-semibold text-white leading-tight">
-            12x de <span className="font-extrabold text-emerald-400">R$ 20,57</span>{" "}
-            <span className="text-[0.7rem] text-purple-300 font-normal">ou R$ 198,90</span>
+            12x de <span className="font-extrabold text-emerald-400">R$ 24,20</span>{" "}
+            <span className="text-[0.7rem] text-purple-300 font-normal">ou R$ 210,60</span>
           </p>
         </div>
 

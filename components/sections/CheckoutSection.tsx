@@ -131,53 +131,53 @@ export default function CheckoutSection() {
                       letterSpacing: "-0.03em",
                     }}
                   >
-                    R$ 198,90
+                    R$ 210,60
                   </span>
                   <span style={{ fontSize: "0.85rem", color: "#5226b3", fontWeight: 700 }}>à vista</span>
                 </div>
                 <p style={{ fontSize: "0.88rem", color: "#374151", marginTop: "4px", marginBottom: "8px", fontWeight: 700 }}>
-                  ou <span style={{ color: "#16a34a", fontWeight: 800 }}>12x de R$ 20,57</span> no cartão
+                  ou <span style={{ color: "#16a34a", fontWeight: 800 }}>12x de R$ 24,20</span> no cartão
                 </p>
 
-                {/* Destaque do Cupom LANCAMENTO15 (Copiável) */}
+                {/* Destaque do Cupom SANTOS10 (Copiável) */}
                 <div
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold mt-1 cursor-pointer select-none transition-all duration-200 hover:scale-[1.02] active:scale-95"
                   style={{
-                    background: copiedCoupon === "LANCAMENTO15" ? "#dcfce7" : "#fefce8",
-                    border: copiedCoupon === "LANCAMENTO15" ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
-                    color: copiedCoupon === "LANCAMENTO15" ? "#14532d" : "#854d0e",
+                    background: copiedCoupon === "SANTOS10" ? "#dcfce7" : "#fefce8",
+                    border: copiedCoupon === "SANTOS10" ? "1.5px solid #22c55e" : "1.5px dashed #eab308",
+                    color: copiedCoupon === "SANTOS10" ? "#14532d" : "#854d0e",
                     fontFamily: "var(--font-plus-jakarta)",
                   }}
-                  onClick={() => handleCopyCoupon("LANCAMENTO15")}
+                  onClick={() => handleCopyCoupon("SANTOS10")}
                   role="button"
                   tabIndex={0}
-                  aria-label="Clique para copiar o cupom LANCAMENTO15"
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon("LANCAMENTO15"); }}
+                  aria-label="Clique para copiar o cupom SANTOS10"
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleCopyCoupon("SANTOS10"); }}
                   title="Clique para copiar o cupom"
                 >
                   <span>🏷️ Usando o cupom:</span>
                   <span
                     style={{
-                      color: copiedCoupon === "LANCAMENTO15" ? "#15803d" : "#a16207",
+                      color: copiedCoupon === "SANTOS10" ? "#15803d" : "#a16207",
                       fontWeight: 900,
                       letterSpacing: "0.05em",
-                      background: copiedCoupon === "LANCAMENTO15" ? "#bbf7d0" : "#fef9c3",
+                      background: copiedCoupon === "SANTOS10" ? "#bbf7d0" : "#fef9c3",
                       padding: "2px 8px",
                       borderRadius: "4px",
-                      border: copiedCoupon === "LANCAMENTO15" ? "1px solid #86efac" : "1px solid #fde047",
+                      border: copiedCoupon === "SANTOS10" ? "1px solid #86efac" : "1px solid #fde047",
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "4px",
                     }}
                   >
-                    {copiedCoupon === "LANCAMENTO15" ? (
+                    {copiedCoupon === "SANTOS10" ? (
                       <>
                         <Check size={13} className="text-emerald-700" />
                         COPIADO!
                       </>
                     ) : (
                       <>
-                        LANCAMENTO15
+                        SANTOS10
                         <Copy size={13} className="text-amber-700 opacity-75" />
                       </>
                     )}
@@ -375,7 +375,7 @@ export default function CheckoutSection() {
             Preço de lançamento válido por tempo limitado
           </p>
           <p style={{ fontSize: "0.75rem", color: "#6b7280", fontStyle: "italic" }}>
-            Os cupons LANCAMENTO15 e COMBO20 serão desativados após o período de lançamento
+            Os cupons SANTOS10 e COMBO20 serão desativados após o período promocional
           </p>
         </div>
 

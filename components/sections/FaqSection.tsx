@@ -177,7 +177,7 @@ export default function FaqSection() {
             <ArrowRight size={18} />
           </a>
           <p style={{ fontSize: "0.7rem", color: "#9ca3af", marginTop: "8px", fontWeight: 600 }}>
-            Acesso imediato · 12x R$ 20,57 · Garantia de 7 dias
+            Acesso imediato · 12x R$ 24,20 · Garantia de 7 dias
           </p>
         </div>
       </div>
